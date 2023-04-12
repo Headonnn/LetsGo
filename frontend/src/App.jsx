@@ -1,12 +1,21 @@
-import Home from "./pages/Home";
-
-import "./App.css";
+import React from "react";
+import "./components/index.scss";
+import Header from "./components/header/Header";
+import Nav from "./components/nav/Nav";
+import Categories from "./components/categories/Categories";
+import Nouveautes from "./components/nouveautes/Nouveautes";
+import Contact from "./components/contact/Contact";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      <p>coucou</p>
+      <Header />
+      <Nav />
+      <Categories />
+      <Nouveautes />
+      <Contact />
+      <Footer />
     </div>
   );
 }
