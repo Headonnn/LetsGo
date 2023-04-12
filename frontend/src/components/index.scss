@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme&display=swap');
+
+@import "./header.scss";
+@import "./nav.scss";
+@import "./categories.scss";
+@import "./nouveautes.scss";
+@import "./contact.scss";
+@import "./footer.scss";
+
+*{
+    margin:0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --color-bg: whitesmoke;
+    --color-secondary: #4FA095;
+    --color-bg-variant: #153462;
+    --color-text-light :whitesmoke;
+    --color-text-dark: #153462;
+}
