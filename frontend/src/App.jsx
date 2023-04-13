@@ -1,7 +1,6 @@
-import Home from "./pages/Home";
-import axios from 'axios'
+
+
 import "./App.css";
-import { useEffect, useState } from "react";
 
 function App() {
   const [api,setApi] = useState([])
@@ -16,7 +15,6 @@ function App() {
     <div className="App">
       <Home />
       <p>coucou</p>
-      <button onClick={hehe}> azdaz</button>
     </div>
   );
 }
