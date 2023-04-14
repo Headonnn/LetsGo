@@ -1,7 +1,11 @@
-import Home from "./pages/Home";
-import axios from 'axios'
-import "./App.css";
-import { useEffect, useState } from "react";
+import React from "react";
+import "./index.scss";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Categories from "./components/Categories";
+import Nouveautes from "./components/Nouveautes";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   const [api,setApi] = useState([])
@@ -11,12 +15,14 @@ function App() {
   .then ((data)=>{setApi(data.result);console.log(data)})
   .catch((err) => {console.warn('attention')})
 }
-
   return (
     <div className="App">
-      <Home />
-      <p>coucou</p>
-      <button onClick={hehe}> azdaz</button>
+      <Header />
+      <Nav />
+      <Categories />
+      <Nouveautes />
+      <Contact />
+      <Footer />
     </div>
   );
 }
