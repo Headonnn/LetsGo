@@ -1,5 +1,5 @@
 import React from "react";
-import "./categories.scss";
+import "../style/_categories.scss";
 
 function Categories() {
   return <div />;

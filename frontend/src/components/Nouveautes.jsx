@@ -1,5 +1,5 @@
 import React from "react";
-import "./nouveautes.scss";
+import "../style/_nouveautes.scss";
 
 function Nouveautes() {
   return <div />;

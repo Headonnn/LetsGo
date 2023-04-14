@@ -1,0 +1,19 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-text-dark);
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 10px;
+}
+
+.social {
+  color: white;
+  font-size: 2rem;
+}
