@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: url("../assets/images/nantes-header.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 35vh;
+
+  .text {
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: "BioRhyme";
+    text-align: center;
+    margin: 10%;
+    margin-bottom: 125px;
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--color-text-dark);
+    // text-shadow: rgb(57, 10, 107) 9px 3px 14px;
+  }
+
+  h2 {
+    font-family: "Titillium Web";
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+  }
+}

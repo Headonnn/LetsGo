@@ -1,6 +1,13 @@
+import React, { useEffect, useState } from "react";
+import "./index.scss";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import MultiRangeSlider from "multi-range-slider-react";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Categories from "./components/Categories";
+import Nouveautes from "./components/Nouveautes";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Card from "./components/Card";
 import TarifGratuit from "./components/TarifGratuit";
@@ -29,6 +36,12 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+      <Nav />
+      <Categories />
+      <Nouveautes />
+      <Contact />
+      <Footer />
       <Home />
       <p>coucou</p>
 
