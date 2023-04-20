@@ -101,25 +101,7 @@ function App() {
       <Contact />
       <Footer />
       <Home />
-
       <Sidebar />
-      <p>coucou</p>
-      <MultiRangeSlider
-       min={0}
-       max={300}
-       step={5}
-       label={true}
-      ruler={false}
-      style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
-       minValue={minValue}
-       maxValue={maxValue}
-       barInnerColor="#153462"
-       onInput={(e) => {
-         handleInput(e);
-       }}
-      />
-      
-
       <TarifGratuit setFree={setFree} />
       {/*  condition de filtre gratuit ou payant */}
 
