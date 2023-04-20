@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./index.scss";
 import axios from "axios";
 import MultiRangeSlider from "multi-range-slider-react";
+import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Categories from "./components/Categories";
@@ -100,6 +101,25 @@ function App() {
       <Contact />
       <Footer />
       <Home />
+
+      <Sidebar />
+      <p>coucou</p>
+      <MultiRangeSlider
+       min={0}
+       max={300}
+       step={5}
+       label={true}
+      ruler={false}
+      style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
+       minValue={minValue}
+       maxValue={maxValue}
+       barInnerColor="#153462"
+       onInput={(e) => {
+         handleInput(e);
+       }}
+      />
+      
+
       <TarifGratuit setFree={setFree} />
       {/*  condition de filtre gratuit ou payant */}
 
