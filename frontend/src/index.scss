@@ -1,9 +1,13 @@
 @import "./style/header";
 @import "./style/nav.scss";
 @import "./style/categories.scss";
-@import "./style/nouveautes.scss";
+@import "./style/recommandation.scss";
 @import "./style/contact.scss";
 @import "./style/footer.scss";
+@import "./style/_card.scss";
+@import "./style/_tarifGratuit.scss";
+@import "./style/_MultiRangeSlider.scss";
+@import "./style/sidebar";
 
 * {
   margin: 0;

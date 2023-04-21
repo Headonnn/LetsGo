@@ -32,12 +32,7 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@fontsource/roboto": "^4.5.8",
-    "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.12.1",
-    "multi-range-slider-react": "^2.0.3",
+    "nodemon": "^2.0.22",
     "prop-types": "^15.8.1",
     "sass": "^1.62.0"
   }
