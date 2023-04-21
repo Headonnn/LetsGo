@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Categories from "./components/Categories";
-import Nouveautes from "./components/Nouveautes";
+import Recommandation from "./components/Recommandation";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -97,7 +97,7 @@ function App() {
       <Header />
       <Nav />
       <Categories />
-      <Nouveautes />
+      <Recommandation />
       <Contact />
       <Footer />
       <Home />
