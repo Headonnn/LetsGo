@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./index.scss";
 import axios from "axios";
 import MultiRangeSlider from "multi-range-slider-react";
+import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Categories from "./components/Categories";
@@ -13,6 +14,7 @@ import Card from "./components/Card";
 import TarifGratuit from "./components/TarifGratuit";
 import Categ from "./components/Categ";
 import Dept from "./components/Dept";
+import FiltreDate from "./components/FiltreDate";
 /* import _index from "./Styles/_index.scss"; */
 
 function App() {
@@ -22,6 +24,13 @@ function App() {
   const [free, setFree] = useState("Payant et gratuit");
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(300);
+  const [calend, setCalend] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
   const handleInput = (e) => {
     setMinValue(e.minValue);
     setMaxValue(e.maxValue);
@@ -32,8 +41,8 @@ function App() {
         "https://data.paysdelaloire.fr/api/records/1.0/search/?dataset=234400034_070-002_offre-touristique-fetes_et_manifestations-rpdl&q=&rows=1779&facet=categorie&facet=commune&facet=periodicite&facet=tarifgratuit&facet=resaenligneouinon&facet=departement%22"
       )
       .then((response) => {
-        setApi(response.data);
-        console.warn(response.data);
+        setApi(response.data.records);
+        console.warn(response.data.records);
       })
       .catch((err) => {
         console.warn(err);
@@ -62,6 +71,26 @@ function App() {
     }
     return [0];
   }
+  const handleDate = (str) => {
+    let dates = [];
+    dates = str
+      .match(/(\d+\/\d+\/\d+)\|\|/g, " ")
+      .map((e) => e.replace(/\|/g, ""));
+
+    dates = dates.map((e) => {
+      const tab = e.split("");
+      tab.splice(6, 0, tab[0]);
+      tab.splice(7, 0, tab[1]);
+      tab.splice(8, 0, tab[2]);
+      tab.shift();
+      tab.shift();
+      tab.shift();
+      return tab.join("");
+    });
+
+    dates = dates.map((e) => new Date(e));
+    return dates;
+  };
 
   return (
     <div className="App">
@@ -72,33 +101,44 @@ function App() {
       <Contact />
       <Footer />
       <Home />
-      <p>Coucou</p>
-      <div>
-        Valeurs : ({minValue} ; {maxValue})
-      </div>
-      <MultiRangeSlider
-        min={0}
-        max={300}
-        step={5}
-        label
-        ruler={false}
-        style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
-        minValue={minValue}
-        maxValue={maxValue}
-        barInnerColor="#153462"
-        onInput={(e) => {
-          handleInput(e);
-        }}
-      />
-
+      <Sidebar />
       <TarifGratuit setFree={setFree} />
       {/*  condition de filtre gratuit ou payant */}
+
+      {free !== "Gratuit" && (
+        <div>
+          Valeurs : ({minValue} ; {maxValue})
+        </div>
+      )}
+      {free !== "Gratuit" && (
+        <MultiRangeSlider
+          min={0}
+          max={300}
+          step={5}
+          label
+          ruler={false}
+          style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
+          minValue={minValue}
+          maxValue={maxValue}
+          barInnerColor="#153462"
+          onInput={(e) => {
+            handleInput(e);
+          }}
+        />
+      )}
       {api && <Categ donnees={api} setCateg={setCateg} />}
       {api && <Dept donnees={api} setDpt={setDpt} />}
-      {}
+      {api && <FiltreDate calend={calend} setCalend={setCalend} />}
 
       {api &&
-        api.records
+        api
+          .filter((e) => {
+            return (
+              handleDate(e.fields.ouverturegranule).filter((el) => {
+                return el <= calend[0].endDate && el >= calend[0].startDate;
+              }).length !== 0
+            );
+          })
           .filter((e) => {
             return (
               minValue <= Math.min(...handleString(e.fields.tarifs)) &&

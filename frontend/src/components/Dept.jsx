@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Dept({ donnees, setDept }) {
   const handleDept = () => {
     let depa = [];
-    depa = donnees.records.map((e) => {
+    depa = donnees.map((e) => {
       return e.fields.departement;
     });
 
@@ -28,7 +28,12 @@ function Dept({ donnees, setDept }) {
     setDept(e.target.value);
   };
 
-  return <select onChange={(e) => handleDepaChange(e)}>{handleDept()}</select>;
+  return (
+    <>
+      <p>DEPARTEMENTS :</p>
+      <select onChange={(e) => handleDepaChange(e)}>{handleDept()}</select>
+    </>
+  );
 }
 
 export default Dept;

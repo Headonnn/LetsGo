@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Categ({ donnees, setCateg }) {
   const handleCateg = () => {
     let haha = [];
-    haha = donnees.records.map((e) => {
+    haha = donnees.map((e) => {
       return e.fields.categorie;
     });
 
@@ -28,7 +28,10 @@ function Categ({ donnees, setCateg }) {
     setCateg(e.target.value);
   };
   return (
-    <select onChange={(e) => handleCategChange(e)}>{handleCateg()}</select>
+    <>
+      <p>CATEGORIES :</p>
+      <select onChange={(e) => handleCategChange(e)}>{handleCateg()}</select>
+    </>
   );
 }
 
