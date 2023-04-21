@@ -1,12 +1,12 @@
 import React from "react";
-import "../style/_categories.scss";
+import "../style/_recommandation.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-function Categories() {
+function Nouveautes() {
   const carousel = [
     {
-      title: "Evènements",
+      title: "Evenements",
       image: "./src/assets/images/evenements.jpg",
     },
     {
@@ -20,10 +20,10 @@ function Categories() {
   ];
 
   return (
-    <Carousel autoPlay interval={10000} infiniteLoop showStatus={false}>
+    <Carousel autoplay interval={5000} infiniteLoop showStatus={false}>
       {carousel.map((slide) => (
         <>
-          <div className="categories_title">Catégories</div>
+          <div className="recommandation_title">Recommandation</div>
           <div key={slide.title} />
           <img src={slide.image} alt="" />
           <div className="overlay">
@@ -35,4 +35,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default Nouveautes;
