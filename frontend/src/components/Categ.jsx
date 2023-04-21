@@ -1,4 +1,5 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 
 function Categ({ donnees, setCateg }) {
@@ -34,7 +35,6 @@ function Categ({ donnees, setCateg }) {
     </>
   );
 }
-
 export default Categ;
 Categ.propTypes = {
   donnees: PropTypes.arrayOf(
