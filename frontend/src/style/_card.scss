@@ -12,15 +12,15 @@
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 4px;
-  transition: all .25s ease-out;
+  transition: all 0.25s ease-out;
   overflow: hidden;
   background-color: white;
-  transition: all .25s ease-out;
+  transition: all 0.25s ease-out;
   overflow: hidden;
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow:   rgba(77, 79, 83, 0.2) 0px 8px 24px;
-    }
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: rgba(77, 79, 83, 0.2) 0px 8px 24px;
+  }
   .CardEvent {
     font-size: 23px;
     max-width: 80%;

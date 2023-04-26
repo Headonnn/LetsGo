@@ -8,7 +8,6 @@ function TarifGratuit({ setFree }) {
 
   return (
     <div className="TarifGratuit">
-      <p>TARIF :</p>
       <select onChange={(e) => handleChange(e)}>
         <option value="Payant et gratuit">Payant et gratuit</option>
         <option value="Payant"> Payant</option>
