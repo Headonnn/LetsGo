@@ -29,10 +29,7 @@ function Categ({ donnees, setCateg }) {
     setCateg(e.target.value);
   };
   return (
-    <>
-      <p>CATEGORIES :</p>
-      <select onChange={(e) => handleCategChange(e)}>{handleCateg()}</select>
-    </>
+    <select onChange={(e) => handleCategChange(e)}>{handleCateg()}</select>
   );
 }
 export default Categ;
