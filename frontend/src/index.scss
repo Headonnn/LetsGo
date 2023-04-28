@@ -1,6 +1,5 @@
 @import "./style/app.scss";
 @import "./style/header.scss";
-@import "./style/nav.scss";
 @import "./style/categories.scss";
 @import "./style/recommandation.scss";
 @import "./style/contact.scss";
@@ -9,8 +8,13 @@
 @import "./style/_tarifGratuit.scss";
 @import "./style/_MultiRangeSlider.scss";
 @import "./style/sidebar";
+
+@import "./style/navigation";
+@import "./style/navigationCategories";
+
 @import "./style/_categ.scss";
 @import "./style/_filtreDate.scss";
+
 
 * {
   margin: 0;

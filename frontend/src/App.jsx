@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 import axios from "axios";
-
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import Nav from "./components/Nav";
+import Navigation from "./components/Menu_accueil/MenuAccueil";
 import Categories from "./components/Categories";
 import Recommandation from "./components/Recommandation";
 import Contact from "./components/Contact";
@@ -13,11 +12,7 @@ import Home from "./pages/Home";
 import Card from "./components/Card";
 
 import FavorisFilter from "./components/FavorisFilter";
-// import MultiRangeSlider from "multi-range-slider-react";
-// import TarifGratuit from "./components/TarifGratuit";
-// import Categ from "./components/Categ";
-// import Dept from "./components/Dept";
-// import FiltreDate from "./components/FiltreDate";
+
 /* import _index from "./Styles/_index.scss"; */
 
 function App() {
@@ -98,11 +93,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Nav />
+      <Navigation />
       <Categories />
       <Recommandation />
       <Contact />
       <Home />
+
       <FavorisFilter setIsFavorite={setIsFavorite} />
       <Sidebar
         setDpt={setDpt}
