@@ -11,14 +11,18 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Card from "./components/Card";
-// import MultiRangeSlider from "multi-range-slider-react";
-// import TarifGratuit from "./components/TarifGratuit";
-// import Categ from "./components/Categ";
-// import Dept from "./components/Dept";
-// import FiltreDate from "./components/FiltreDate";
+
+import FavorisFilter from "./components/FavorisFilter";
+import MultiRangeSlider from "multi-range-slider-react";
+import TarifGratuit from "./components/TarifGratuit";
+import Categ from "./components/Categ";
+import Dept from "./components/Dept";
+import FiltreDate from "./components/FiltreDate";
 /* import _index from "./Styles/_index.scss"; */
 
 function App() {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [moreInfos, setMoreInfos] = useState(false);
   const [dept, setDpt] = useState("All");
   const [categ, setCateg] = useState("All");
   const [api, setApi] = useState(undefined);
@@ -99,6 +103,23 @@ function App() {
       <Recommandation />
       <Contact />
       <Home />
+
+      
+      <TarifGratuit setFree={setFree} />
+      <FavorisFilter setIsFavorite={setIsFavorite} />
+      {free !== "Gratuit" && (
+        <div>
+          Valeurs : ({minValue} ; {maxValue})
+        </div>
+      )}
+      {free !== "Gratuit" && (
+        <MultiRangeSlider
+          min={0}
+          max={300}
+          step={5}
+          label
+          ruler={false}
+          style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
       <div className="containerSidebarCards">
         <Sidebar
           setDpt={setDpt}
@@ -158,23 +179,44 @@ function App() {
                 return e.fields.tarifgratuit === "oui";
               }
               return e;
-            })
-            .map((e) => {
-              return (
-                <Card
-                  event={e.fields.nomoffre}
-                  category={e.fields.categorie}
-                  adress={e.fields.adresse2}
-                  departement={e.fields.departement}
-                  price={e.fields.tarifgratuit}
-                  eventPrice={e.fields.tarifs}
-                  payment={e.fields.modepaiement}
-                  date={e.fields.ouverturegranule}
-                />
-              );
-            })}
+
+            }
+            return categ === "Sans categorie"
+              ? e.fields.categorie === undefined
+              : e.fields.categorie === categ;
+          })
+          .filter((e) => {
+            if (free === "Payant") {
+              return e.fields.tarifgratuit === "non";
+            }
+            if (free === "Gratuit") {
+              return e.fields.tarifgratuit === "oui";
+            }
+            return e;
+          })
+          .map((e) => {
+            return (
+              <Card
+                event={e.fields.nomoffre}
+                category={e.fields.categorie}
+                adress={e.fields.adresse2}
+                departement={e.fields.departement}
+                price={e.fields.tarifgratuit}
+                eventPrice={e.fields.tarifs}
+                payment={e.fields.modepaiement}
+                date={e.fields.ouverturegranule}
+                isFavorite={isFavorite}
+                setIsFavorite={setIsFavorite}
+                moreInfos={moreInfos}
+                setMoreInfos={setMoreInfos}
+              />
+            );
+          })}
+
+          
       </div>
       <Footer />
+
     </div>
   );
 }
