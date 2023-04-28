@@ -73,7 +73,7 @@ function Categ({ donnees, setCateg, categ }) {
           </div>
         );
       }
-      return e;
+      return <div />;
     });
   };
 
