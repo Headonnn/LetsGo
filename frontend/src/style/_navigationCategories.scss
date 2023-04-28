@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.categories {
+  width: 100%;
+  height: 40vh;
+  margin: 0 auto;
+  background: var(--color-bg-variant);
+  color: var(--color-text-light);
+  font-family: "BioRhyme";
+
+  padding: 1rem;
+}
+
+a {
+}
