@@ -5,6 +5,7 @@ function FavorisFilter({ setIsFavorite }) {
   const handleChange = (e) => {
     setIsFavorite(e.target.value);
   };
+  console.warn("hello");
   return (
     <div className="MyFavorites">
       <p> FAVORIS :</p>

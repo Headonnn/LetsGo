@@ -30,6 +30,7 @@ function Card({
 
   function handleMoreInfos() {
     setMoreInfos(!moreInfos);
+    console.warn("hello");
   }
 
   return (
