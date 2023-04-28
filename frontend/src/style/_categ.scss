@@ -1,5 +1,7 @@
-.TarifGratuit {
-  .euro {
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
+
+.boutonsCategCont {
+  .boutonCateg {
     display: flex;
     background-color: white;
     border-radius: 4px;
@@ -16,9 +18,12 @@
       cursor: pointer;
     }
   }
-
   .selected {
     background-color: var(--color-secondary);
     color: white;
   }
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 4px;
 }

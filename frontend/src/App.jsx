@@ -36,6 +36,8 @@ function App() {
       key: "selection",
     },
   ]);
+  const [dateEvMin, setDateEvMin] = useState(new Date("01/01/2023").toString());
+  const [dateEvMax, setDateEvMax] = useState(new Date("12/31/2023").toString());
   useEffect(() => {
     axios
       .get(
@@ -121,16 +123,21 @@ function App() {
       <div className="containerSidebarCards">
         <Sidebar
           setDpt={setDpt}
-          free={setFree}
+          categ={categ}
+          free={free}
           setFree={setFree}
           minValue={minValue}
           setMinValue={setMinValue}
           maxValue={maxValue}
           setMaxValue={setMaxValue}
           api={api}
-          categ={setCateg}
+          setCateg={setCateg}
           calend={calend}
           setCalend={setCalend}
+          dateEvMin={dateEvMin}
+          setDateEvMin={setDateEvMin}
+          dateEvMax={dateEvMax}
+          setDateEvMax={setDateEvMax}
         />
 
         {api &&
@@ -138,7 +145,7 @@ function App() {
             .filter((e) => {
               return (
                 handleDate(e.fields.ouverturegranule).filter((el) => {
-                  return el <= calend[0].endDate && el >= calend[0].startDate;
+                  return el <= new Date(dateEvMax) && el >= new Date(dateEvMin);
                 }).length !== 0
               );
             })
