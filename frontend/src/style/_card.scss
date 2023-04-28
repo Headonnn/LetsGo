@@ -5,22 +5,28 @@
   justify-content: space-between;
   margin: 0 auto;
   margin-bottom: 20px;
-  gap: 10px;
-  padding: 20px;
   max-width: 80%;
-
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 4px;
-  transition: all .25s ease-out;
+  transition: all 0.25s ease-out;
   overflow: hidden;
   background-color: white;
-  transition: all .25s ease-out;
+  transition: all 0.25s ease-out;
   overflow: hidden;
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow:   rgba(77, 79, 83, 0.2) 0px 8px 24px;
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: rgba(77, 79, 83, 0.2) 0px 8px 24px;
+  }
+  .CardImg {
+    max-height: 25vh;
+  }
+  .DivTextCard {
+    padding: 20px;
+    p {
+      margin-bottom: 8px;
     }
+  }
   .CardEvent {
     font-size: 23px;
     max-width: 80%;
@@ -33,6 +39,7 @@
     border: none;
     background: none;
     top: 23px;
+    right: 23px;
     align-self: flex-end;
     cursor: pointer;
     transition: all 0.1s ease-in-out;

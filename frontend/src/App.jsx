@@ -15,9 +15,12 @@ import TarifGratuit from "./components/TarifGratuit";
 import Categ from "./components/Categ";
 import Dept from "./components/Dept";
 import FiltreDate from "./components/FiltreDate";
+import FavorisFilter from "./components/FavorisFilter";
 /* import _index from "./Styles/_index.scss"; */
 
 function App() {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [moreInfos, setMoreInfos] = useState(false);
   const [dept, setDpt] = useState("All");
   const [categ, setCateg] = useState("All");
   const [api, setApi] = useState(undefined);
@@ -103,7 +106,7 @@ function App() {
       <Home />
       <Sidebar />
       <TarifGratuit setFree={setFree} />
-      {/*  condition de filtre gratuit ou payant */}
+      <FavorisFilter setIsFavorite={setIsFavorite} />
 
       {free !== "Gratuit" && (
         <div>
@@ -181,6 +184,10 @@ function App() {
                 eventPrice={e.fields.tarifs}
                 payment={e.fields.modepaiement}
                 date={e.fields.ouverturegranule}
+                isFavorite={isFavorite}
+                setIsFavorite={setIsFavorite}
+                moreInfos={moreInfos}
+                setMoreInfos={setMoreInfos}
               />
             );
           })}
