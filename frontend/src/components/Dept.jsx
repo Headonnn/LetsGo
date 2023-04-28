@@ -28,12 +28,7 @@ function Dept({ donnees, setDept }) {
     setDept(e.target.value);
   };
 
-  return (
-    <>
-      <p>DEPARTEMENTS :</p>
-      <select onChange={(e) => handleDepaChange(e)}>{handleDept()}</select>
-    </>
-  );
+  return <select onChange={(e) => handleDepaChange(e)}>{handleDept()}</select>;
 }
 
 export default Dept;

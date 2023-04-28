@@ -6,21 +6,14 @@ import { DateRange } from "react-date-range";
 
 function FiltreDate({ calend, setCalend }) {
   return (
-    <>
-      <p>DATE :</p>
-      <p>
-        {calend[0].startDate.toString()} :{" "}
-        {calend[0].endDate ? calend[0].endDate.toString() : "rien"}
-      </p>
-      <DateRange
-        editableDateInputs
-        onChange={(item) => {
-          setCalend([item.selection]);
-        }}
-        moveRangeOnFirstSelection={false}
-        ranges={calend}
-      />
-    </>
+    <DateRange
+      editableDateInputs
+      onChange={(item) => {
+        setCalend([item.selection]);
+      }}
+      moveRangeOnFirstSelection={false}
+      ranges={calend}
+    />
   );
 }
 
@@ -32,6 +25,6 @@ FiltreDate.propTypes = {
   setCalend: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ).isRequired,
-  startDate: PropTypes.instanceOf(Date).isRequired,
-  endDate: PropTypes.instanceOf(Date).isRequired,
+  // startDate: PropTypes.instanceOf(Date).isRequired,
+  // endDate: PropTypes.instanceOf(Date).isRequired,
 };

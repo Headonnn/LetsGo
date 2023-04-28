@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 import axios from "axios";
-import MultiRangeSlider from "multi-range-slider-react";
+
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -11,11 +11,13 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Card from "./components/Card";
+
+import FavorisFilter from "./components/FavorisFilter";
+import MultiRangeSlider from "multi-range-slider-react";
 import TarifGratuit from "./components/TarifGratuit";
 import Categ from "./components/Categ";
 import Dept from "./components/Dept";
 import FiltreDate from "./components/FiltreDate";
-import FavorisFilter from "./components/FavorisFilter";
 /* import _index from "./Styles/_index.scss"; */
 
 function App() {
@@ -34,10 +36,6 @@ function App() {
       key: "selection",
     },
   ]);
-  const handleInput = (e) => {
-    setMinValue(e.minValue);
-    setMaxValue(e.maxValue);
-  };
   useEffect(() => {
     axios
       .get(
@@ -66,10 +64,10 @@ function App() {
       return str
         .match(/\|(\d+,\d+?)\|/g)
         .join("")
-        .replace(/\|/g, " ")
+        .replace(/\|/g, "")
         .replace(/,/g, ".")
         .trim()
-        .split("  ")
+        .split(" ")
         .map((e) => Number(e));
     }
     return [0];
@@ -77,7 +75,7 @@ function App() {
   const handleDate = (str) => {
     let dates = [];
     dates = str
-      .match(/(\d+\/\d+\/\d+)\|\|/g, " ")
+      .match(/(\d+\/\d+\/\d+)\|\|/g, "")
       .map((e) => e.replace(/\|/g, ""));
 
     dates = dates.map((e) => {
@@ -102,12 +100,11 @@ function App() {
       <Categories />
       <Recommandation />
       <Contact />
-      <Footer />
       <Home />
-      <Sidebar />
+
+      
       <TarifGratuit setFree={setFree} />
       <FavorisFilter setIsFavorite={setIsFavorite} />
-
       {free !== "Gratuit" && (
         <div>
           Valeurs : ({minValue} ; {maxValue})
@@ -121,44 +118,61 @@ function App() {
           label
           ruler={false}
           style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
+      <div className="containerSidebarCards">
+        <Sidebar
+          setDpt={setDpt}
+          free={setFree}
+          setFree={setFree}
           minValue={minValue}
+          setMinValue={setMinValue}
           maxValue={maxValue}
-          barInnerColor="#153462"
-          onInput={(e) => {
-            handleInput(e);
-          }}
+          setMaxValue={setMaxValue}
+          api={api}
+          categ={setCateg}
+          calend={calend}
+          setCalend={setCalend}
         />
-      )}
-      {api && <Categ donnees={api} setCateg={setCateg} />}
-      {api && <Dept donnees={api} setDpt={setDpt} />}
-      {api && <FiltreDate calend={calend} setCalend={setCalend} />}
 
-      {api &&
-        api
-          .filter((e) => {
-            return (
-              handleDate(e.fields.ouverturegranule).filter((el) => {
-                return el <= calend[0].endDate && el >= calend[0].startDate;
-              }).length !== 0
-            );
-          })
-          .filter((e) => {
-            return (
-              minValue <= Math.min(...handleString(e.fields.tarifs)) &&
-              maxValue >= Math.max(...handleString(e.fields.tarifs))
-            );
-          })
-          .filter((e) => {
-            if (dept === "All") {
+        {api &&
+          api
+            .filter((e) => {
+              return (
+                handleDate(e.fields.ouverturegranule).filter((el) => {
+                  return el <= calend[0].endDate && el >= calend[0].startDate;
+                }).length !== 0
+              );
+            })
+            .filter((e) => {
+              return (
+                minValue <= Math.min(...handleString(e.fields.tarifs)) &&
+                maxValue >= Math.max(...handleString(e.fields.tarifs))
+              );
+            })
+            .filter((e) => {
+              if (dept === "All") {
+                return e;
+              }
+              return dept === "Sans Département"
+                ? e.fields.departement === undefined
+                : e.fields.departement === dept;
+            })
+            .filter((e) => {
+              if (categ === "All") {
+                return e;
+              }
+              return categ === "Sans categorie"
+                ? e.fields.categorie === undefined
+                : e.fields.categorie === categ;
+            })
+            .filter((e) => {
+              if (free === "Payant") {
+                return e.fields.tarifgratuit === "non";
+              }
+              if (free === "Gratuit") {
+                return e.fields.tarifgratuit === "oui";
+              }
               return e;
-            }
-            return dept === "Sans Département"
-              ? e.fields.departement === undefined
-              : e.fields.departement === dept;
-          })
-          .filter((e) => {
-            if (categ === "All") {
-              return e;
+
             }
             return categ === "Sans categorie"
               ? e.fields.categorie === undefined
@@ -191,6 +205,11 @@ function App() {
               />
             );
           })}
+
+          
+      </div>
+      <Footer />
+
     </div>
   );
 }

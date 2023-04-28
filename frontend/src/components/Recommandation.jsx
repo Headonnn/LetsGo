@@ -3,7 +3,7 @@ import "../style/_recommandation.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-function Nouveautes() {
+function Recommandation() {
   const carousel = [
     {
       title: "Evenements",
@@ -35,4 +35,4 @@ function Nouveautes() {
   );
 }
 
-export default Nouveautes;
+export default Recommandation;
