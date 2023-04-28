@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
+
+* {
+  font-family: "BioRhyme";
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  margin-top: 5px auto;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--color-bg);
+  width: 100%;
+}
+
+li {
+  background: linear-gradient(var(--color-bg-variant), #4b50d7);
+  border: 1px solid linear-gradient(var(--color-bg-variant), #4b50d7);
+  border-radius: 50px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 1px 1px 1px 0.5px rgb(112, 110, 110);
+  padding: 1.2rem;
+}
+
+a {
+  color: var(--color-text-light);
+}
+
+li:hover {
+  background: var(--color-bg-variant);
+  border: 1px solid var(--color-bg-variant);
+  border-radius: 50px;
+}
+
+/*==================== MEDIA QUERIES (small devices) ==========*/
+@media screen and (max-width: 600px) {
+  .icon {
+    display: none;
+  }
+
+  li {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
