@@ -15,6 +15,7 @@ import Dept from "./Dept";
 
 function Sidebar({
   setDpt,
+
   minValue,
   setMinValue,
   maxValue,
@@ -22,9 +23,14 @@ function Sidebar({
   free,
   setFree,
   api,
+  categ,
   setCateg,
   calend,
   setCalend,
+  dateEvMin,
+  dateEvMax,
+  setDateEvMin,
+  setDateEvMax,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -51,7 +57,7 @@ function Sidebar({
               Catégories
             </p>
           </div>
-          {api && <Categ donnees={api} setCateg={setCateg} />}
+          {api && <Categ donnees={api} setCateg={setCateg} categ={categ} />}
 
           <br />
 
@@ -61,7 +67,12 @@ function Sidebar({
               Tarif
             </p>
           </div>
-          <TarifGratuit setFree={setFree} />
+          <TarifGratuit
+            setFree={setFree}
+            free={free}
+            setMinValue={setMinValue}
+            setMaxValue={setMaxValue}
+          />
 
           {free !== "Gratuit" && (
             <MultiRangeSlider
@@ -77,7 +88,7 @@ function Sidebar({
               }}
               minValue={minValue}
               maxValue={maxValue}
-              barInnerColor="#153462"
+              barInnerColor="#4fa095"
               onInput={(e) => {
                 handleInput(e);
               }}
@@ -92,7 +103,16 @@ function Sidebar({
               Calendrier
             </p>
           </div>
-          {api && <FiltreDate calend={calend} setCalend={setCalend} />}
+          {api && (
+            <FiltreDate
+              calend={calend}
+              setCalend={setCalend}
+              dateEvMin={dateEvMin}
+              dateEvMax={dateEvMax}
+              setDateEvMin={setDateEvMin}
+              setDateEvMax={setDateEvMax}
+            />
+          )}
 
           <br />
 
@@ -131,4 +151,9 @@ Sidebar.propTypes = {
   setMaxValue: PropTypes.string.isRequired,
   free: PropTypes.string.isRequired,
   setFree: PropTypes.string.isRequired,
+  categ: PropTypes.string.isRequired,
+  dateEvMin: PropTypes.string.isRequired,
+  dateEvMax: PropTypes.string.isRequired,
+  setDateEvMin: PropTypes.string.isRequired,
+  setDateEvMax: PropTypes.string.isRequired,
 };

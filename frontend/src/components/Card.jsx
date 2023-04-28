@@ -24,6 +24,41 @@ function Card({
   const [moreInfos, setMoreInfos] = useState(false);
   const handleClickFavorite = () => setIsFavorite(false);
   const handleClickNotFavorite = () => setIsFavorite(true);
+  const handleDateCard = (str) => {
+    let dates = [];
+    dates = str
+      .match(/(\d+\/\d+\/\d+)\|\|/g, "")
+      .map((e) => e.replace(/\|/g, ""));
+
+    dates = dates.map((e) => {
+      const tab = e.split("");
+      tab.splice(6, 0, tab[0]);
+      tab.splice(7, 0, tab[1]);
+      tab.splice(8, 0, tab[2]);
+      tab.shift();
+      tab.shift();
+      tab.shift();
+      return tab.join("");
+    });
+
+    dates = dates.map((e) => new Date(e));
+
+    dates = dates.filter((e) => e - new Date() > 0);
+    if (dates.length > 0) {
+      dates = dates.sort((a, b) => a - b);
+
+      return dates[0].toString();
+    }
+    return "Aucune info";
+  };
+  const belleDate = (str) => {
+    if (str === "Aucune info") {
+      return "Aucune info";
+    }
+    const d = new Date(str);
+
+    return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+  };
 
   function handleMoreInfos() {
     setMoreInfos(!moreInfos);
@@ -50,7 +85,7 @@ function Card({
         <MdCategory /> : {category || "Aucune information"}{" "}
       </p>
       <p className="CardDate">
-        <AiFillCalendar /> : {date || "Aucune information"}
+        <AiFillCalendar /> : {belleDate(handleDateCard(date))}
       </p>
 
       <div className="card-details">

@@ -11,6 +11,7 @@
   height: 100%;
   left: 0;
   top: 0;
+  z-index: 1;
 }
 main {
   width: 100%;
@@ -19,7 +20,7 @@ main {
 .sidebar {
   background-color: var(--color-bg-variant);
   color: var(--color-text-light);
-  height: 100vh;
+  height: 100%;
   width: 200px;
   transition: all 0.5s;
 }
@@ -41,9 +42,11 @@ main {
   padding: 10px 10px;
   gap: 15px;
   transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
 }
 .links:hover {
-  background: var(--color-secondary);
+  background: var(--primary);
   color: var(--color-bg-variant);
   transition: all 0.5s;
 }
