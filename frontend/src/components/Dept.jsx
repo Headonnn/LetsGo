@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Dept({ donnees, setDept }) {
+function Dept({ donnees, setDpt }) {
   const handleDept = () => {
     let depa = [];
     depa = donnees.map((e) => {
@@ -25,7 +25,7 @@ function Dept({ donnees, setDept }) {
     });
   };
   const handleDepaChange = (e) => {
-    setDept(e.target.value);
+    setDpt(e.target.value);
   };
 
   return <select onChange={(e) => handleDepaChange(e)}>{handleDept()}</select>;
@@ -36,5 +36,5 @@ Dept.propTypes = {
   donnees: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ).isRequired,
-  setDept: PropTypes.string.isRequired,
+  setDpt: PropTypes.string.isRequired,
 };

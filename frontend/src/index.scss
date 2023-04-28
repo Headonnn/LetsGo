@@ -8,8 +8,13 @@
 @import "./style/_tarifGratuit.scss";
 @import "./style/_MultiRangeSlider.scss";
 @import "./style/sidebar";
+
 @import "./style/navigation";
 @import "./style/navigationCategories";
+
+@import "./style/_categ.scss";
+@import "./style/_filtreDate.scss";
+
 
 * {
   margin: 0;
