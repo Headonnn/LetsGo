@@ -8,16 +8,16 @@ import Nav from "./components/Nav";
 import Categories from "./components/Categories";
 import Recommandation from "./components/Recommandation";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Card from "./components/Card";
 
 import FavorisFilter from "./components/FavorisFilter";
-import MultiRangeSlider from "multi-range-slider-react";
-import TarifGratuit from "./components/TarifGratuit";
-import Categ from "./components/Categ";
-import Dept from "./components/Dept";
-import FiltreDate from "./components/FiltreDate";
+// import MultiRangeSlider from "multi-range-slider-react";
+// import TarifGratuit from "./components/TarifGratuit";
+// import Categ from "./components/Categ";
+// import Dept from "./components/Dept";
+// import FiltreDate from "./components/FiltreDate";
 /* import _index from "./Styles/_index.scss"; */
 
 function App() {
@@ -103,83 +103,51 @@ function App() {
       <Recommandation />
       <Contact />
       <Home />
-
-      
-      <TarifGratuit setFree={setFree} />
       <FavorisFilter setIsFavorite={setIsFavorite} />
-      {free !== "Gratuit" && (
-        <div>
-          Valeurs : ({minValue} ; {maxValue})
-        </div>
-      )}
-      {free !== "Gratuit" && (
-        <MultiRangeSlider
-          min={0}
-          max={300}
-          step={5}
-          label
-          ruler={false}
-          style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
-      <div className="containerSidebarCards">
-        <Sidebar
-          setDpt={setDpt}
-          categ={categ}
-          free={free}
-          setFree={setFree}
-          minValue={minValue}
-          setMinValue={setMinValue}
-          maxValue={maxValue}
-          setMaxValue={setMaxValue}
-          api={api}
-          setCateg={setCateg}
-          calend={calend}
-          setCalend={setCalend}
-          dateEvMin={dateEvMin}
-          setDateEvMin={setDateEvMin}
-          dateEvMax={dateEvMax}
-          setDateEvMax={setDateEvMax}
-        />
-
-        {api &&
-          api
-            .filter((e) => {
-              return (
-                handleDate(e.fields.ouverturegranule).filter((el) => {
-                  return el <= new Date(dateEvMax) && el >= new Date(dateEvMin);
-                }).length !== 0
-              );
-            })
-            .filter((e) => {
-              return (
-                minValue <= Math.min(...handleString(e.fields.tarifs)) &&
-                maxValue >= Math.max(...handleString(e.fields.tarifs))
-              );
-            })
-            .filter((e) => {
-              if (dept === "All") {
-                return e;
-              }
-              return dept === "Sans Département"
-                ? e.fields.departement === undefined
-                : e.fields.departement === dept;
-            })
-            .filter((e) => {
-              if (categ === "All") {
-                return e;
-              }
-              return categ === "Sans categorie"
-                ? e.fields.categorie === undefined
-                : e.fields.categorie === categ;
-            })
-            .filter((e) => {
-              if (free === "Payant") {
-                return e.fields.tarifgratuit === "non";
-              }
-              if (free === "Gratuit") {
-                return e.fields.tarifgratuit === "oui";
-              }
+      <Sidebar
+        setDpt={setDpt}
+        categ={categ}
+        free={free}
+        setFree={setFree}
+        minValue={minValue}
+        setMinValue={setMinValue}
+        maxValue={maxValue}
+        setMaxValue={setMaxValue}
+        api={api}
+        setCateg={setCateg}
+        calend={calend}
+        setCalend={setCalend}
+        dateEvMin={dateEvMin}
+        setDateEvMin={setDateEvMin}
+        dateEvMax={dateEvMax}
+        setDateEvMax={setDateEvMax}
+      />
+      {api &&
+        api
+          .filter((e) => {
+            return (
+              handleDate(e.fields.ouverturegranule).filter((el) => {
+                return el <= new Date(dateEvMax) && el >= new Date(dateEvMin);
+              }).length !== 0
+            );
+          })
+          .filter((e) => {
+            return (
+              minValue <= Math.min(...handleString(e.fields.tarifs)) &&
+              maxValue >= Math.max(...handleString(e.fields.tarifs))
+            );
+          })
+          .filter((e) => {
+            if (dept === "All") {
               return e;
-
+            }
+            return dept === "Sans Département"
+              ? e.fields.departement === undefined
+              : e.fields.departement === dept;
+          })
+          .filter((e) => {
+            if (categ === "All") {
+              return e;
             }
             return categ === "Sans categorie"
               ? e.fields.categorie === undefined
@@ -212,11 +180,7 @@ function App() {
               />
             );
           })}
-
-          
-      </div>
-      <Footer />
-
+      ;
     </div>
   );
 }

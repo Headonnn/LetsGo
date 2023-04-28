@@ -23,7 +23,7 @@ function Categ({ donnees, setCateg, categ }) {
     filtHaha.unshift("All");
     filtHaha.splice(7, 0, "+");
     return filtHaha.map((e, i) => {
-      if (e === undefined && !plus) {
+      if (e === undefined) {
         return (
           <div
             key={e}
