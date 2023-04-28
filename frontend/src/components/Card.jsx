@@ -70,7 +70,6 @@ function Card({
 
   return (
     <div className="Card">
-
       {arrayOfPictures.map((picture) =>
         picture.title === category ? (
           <ArrayPictures
@@ -80,7 +79,6 @@ function Card({
           />
         ) : null
       )}
-
 
       <div className="DivTextCard">
         <p className="CardEvent">
@@ -100,8 +98,8 @@ function Card({
           <MdCategory /> : {category || "Aucune information"}{" "}
         </p>
         <p className="CardDate">
-        <AiFillCalendar /> : {belleDate(handleDateCard(date))}
-      </p>
+          <AiFillCalendar /> : {belleDate(handleDateCard(date))}
+        </p>
         <div className="card-details">
           <button
             type="button"
