@@ -1,7 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap%22");
+@import url("https://fonts.googleapis.com/css2?family=Titillium + Web:wght@700&display=swap%22");
+
+.carousel_size {
+  display: flex;
+  justify-content: center;
+}
 
 .categories_title {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
   font-family: "BioRhyme";
 }
 h2 {
@@ -12,14 +20,11 @@ h2 {
 .carousel {
   position: relative;
 }
-li.slide.selected {
-  display: flex;
-  align-items: center;
+
+.thumbs {
+  overflow: hidden;
 }
-.carousel .thumbs {
-  display: none;
-}
-.carousel .overlay {
+.overlay {
   width: 80%;
   position: absolute;
   top: 50%;
@@ -30,6 +35,6 @@ li.slide.selected {
   background: rgba(0, 0, 0, 0.6);
   color: var(--color-bg);
 }
-.carousel .overlay_title {
+.overlay_title {
   margin: 0.8rem 0 1rem 0;
 }
