@@ -41,7 +41,7 @@ function Sidebar({
 
   return (
     <div className="container">
-      <nav className="sidebar" style={{ width: isOpen ? "400px" : "75px" }}>
+      <nav className="sidebar" style={{ width: isOpen ? "400px" : "55px" }}>
         <div className="top_section">
           <h1 className="logo" style={{ display: isOpen ? "block" : "none" }}>
             Let's go?
@@ -57,7 +57,9 @@ function Sidebar({
               Catégories
             </p>
           </div>
-          {api && <Categ donnees={api} setCateg={setCateg} categ={categ} />}
+          <span style={{ display: isOpen ? "block" : "none" }}>
+            {api && <Categ donnees={api} setCateg={setCateg} categ={categ} />}{" "}
+          </span>
 
           <br />
 
@@ -67,34 +69,35 @@ function Sidebar({
               Tarif
             </p>
           </div>
-          <TarifGratuit
-            setFree={setFree}
-            free={free}
-            setMinValue={setMinValue}
-            setMaxValue={setMaxValue}
-          />
-
-          {free !== "Gratuit" && (
-            <MultiRangeSlider
-              min={0}
-              max={300}
-              step={5}
-              label
-              ruler={false}
-              style={{
-                border: "none",
-                boxShadow: "none",
-                padding: "15px 10px",
-              }}
-              minValue={minValue}
-              maxValue={maxValue}
-              barInnerColor="#4fa095"
-              onInput={(e) => {
-                handleInput(e);
-              }}
+          <span style={{ display: isOpen ? "block" : "none" }}>
+            <TarifGratuit
+              setFree={setFree}
+              free={free}
+              setMinValue={setMinValue}
+              setMaxValue={setMaxValue}
             />
-          )}
 
+            {free !== "Gratuit" && (
+              <MultiRangeSlider
+                min={0}
+                max={300}
+                step={5}
+                label
+                ruler={false}
+                style={{
+                  border: "none",
+                  boxShadow: "none",
+                  padding: "15px 10px",
+                }}
+                minValue={minValue}
+                maxValue={maxValue}
+                barInnerColor="#4fa095"
+                onInput={(e) => {
+                  handleInput(e);
+                }}
+              />
+            )}
+          </span>
           <br />
 
           <div id="icon">
@@ -103,17 +106,18 @@ function Sidebar({
               Calendrier
             </p>
           </div>
-          {api && (
-            <FiltreDate
-              calend={calend}
-              setCalend={setCalend}
-              dateEvMin={dateEvMin}
-              dateEvMax={dateEvMax}
-              setDateEvMin={setDateEvMin}
-              setDateEvMax={setDateEvMax}
-            />
-          )}
-
+          <span style={{ display: isOpen ? "block" : "none" }}>
+            {api && (
+              <FiltreDate
+                calend={calend}
+                setCalend={setCalend}
+                dateEvMin={dateEvMin}
+                dateEvMax={dateEvMax}
+                setDateEvMin={setDateEvMin}
+                setDateEvMax={setDateEvMax}
+              />
+            )}
+          </span>
           <br />
 
           <div id="icon">
@@ -122,8 +126,9 @@ function Sidebar({
               C'est où ?
             </p>
           </div>
-          {api && <Dept donnees={api} setDpt={setDpt} />}
-
+          <span style={{ display: isOpen ? "block" : "none" }}>
+            {api && <Dept donnees={api} setDpt={setDpt} />}
+          </span>
           <br />
         </div>
       </nav>

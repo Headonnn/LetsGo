@@ -11,7 +11,7 @@ import Contact from "./components/Contact";
 import Home from "./pages/Home";
 import Card from "./components/Card";
 
-import FavorisFilter from "./components/FavorisFilter";
+// import FavorisFilter from "./components/FavorisFilter";
 
 /* import _index from "./Styles/_index.scss"; */
 
@@ -98,8 +98,7 @@ function App() {
       <Recommandation />
       <Contact />
       <Home />
-
-      <FavorisFilter setIsFavorite={setIsFavorite} />
+      {/* <FavorisFilter setIsFavorite={setIsFavorite} /> */}
       <Sidebar
         setDpt={setDpt}
         categ={categ}

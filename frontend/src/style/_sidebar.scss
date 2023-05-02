@@ -8,6 +8,7 @@
 .container {
   display: flex;
   justify-content: start;
+  // position: fixed;
   height: 100%;
   left: 0;
   top: 0;
@@ -39,7 +40,7 @@ main {
 }
 .links {
   color: var(--color-text-light);
-  padding: 10px 10px;
+  padding: 20px 10px;
   gap: 15px;
   transition: all 0.5s;
   display: flex;

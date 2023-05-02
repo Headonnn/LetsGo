@@ -1,30 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
 
-* {
-  font-family: "BioRhyme";
-}
-
-.icon {
+.nav-icon {
   height: 20px;
   width: 20px;
   margin-right: 10px;
   margin-top: 5px auto;
 }
 
-nav {
+.navigation {
   width: 100%;
   display: flex;
 }
 
-ul {
+.ul-nav {
   display: flex;
   justify-content: space-around;
   background-color: var(--color-bg);
   width: 100%;
 }
 
-li {
+.nav-li {
   background: linear-gradient(var(--color-bg-variant), #4b50d7);
   border: 1px solid linear-gradient(var(--color-bg-variant), #4b50d7);
   border-radius: 50px;
@@ -34,11 +30,11 @@ li {
   padding: 1.2rem;
 }
 
-a {
+.a-nav {
   color: var(--color-text-light);
 }
 
-li:hover {
+.nav-li:hover {
   background: var(--color-bg-variant);
   border: 1px solid var(--color-bg-variant);
   border-radius: 50px;
@@ -50,7 +46,7 @@ li:hover {
     display: none;
   }
 
-  li {
+  .nav-li {
     margin-left: auto;
     margin-right: auto;
   }
