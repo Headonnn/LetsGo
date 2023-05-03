@@ -5,22 +5,10 @@ import "./index.scss";
 import axios from "axios";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
-// import Sidebar from "./components/Sidebar";
-// import Header from "./components/Header";
-// import Nav from "./components/Nav";
-// import CarouselCategories from "./components/CarouselCategories";
-// import Recommandation from "./components/Recommandation";
-// import Contact from "./components/Contact";
-// import Footer from "./components/Footer";
-
-// import Card from "./components/Card";
-// import MultiRangeSlider from "multi-range-slider-react";
-// import TarifGratuit from "./components/TarifGratuit";
-// import Categ from "./components/Categ";
-// import Dept from "./components/Dept";
-// import FiltreDate from "./components/FiltreDate";
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
+  const [favoritesFilter, setFavoritesFilter] = useState(false);
   const [dept, setDept] = useState("All");
   const [categ, setCateg] = useState("All");
   const [api, setApi] = useState(undefined);
@@ -34,6 +22,8 @@ function App() {
       key: "selection",
     },
   ]);
+  const [dateEvMin, setDateEvMin] = useState(new Date("01/01/2023").toString());
+  const [dateEvMax, setDateEvMax] = useState(new Date("12/31/2023").toString());
 
   useEffect(() => {
     axios
@@ -57,6 +47,14 @@ function App() {
           path="/page2"
           element={
             <Page2
+              dateEvMin={dateEvMin}
+              setDateEvMin={setDateEvMin}
+              dateEvMax={dateEvMax}
+              setDateEvMax={setDateEvMax}
+              favoritesFilter={favoritesFilter}
+              setFavoritesFilter={setFavoritesFilter}
+              favorites={favorites}
+              setFavorites={setFavorites}
               api={api}
               dept={dept}
               setDept={setDept}

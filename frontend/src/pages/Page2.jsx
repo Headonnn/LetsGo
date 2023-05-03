@@ -6,6 +6,14 @@ import Card from "../components/Card";
 import Footer from "../components/Footer";
 
 function Page2({
+  dateEvMin,
+  setDateEvMin,
+  dateEvMax,
+  setDateEvMax,
+  favoritesFilter,
+  setFavoritesFilter,
+  favorites,
+  setFavorites,
   dept,
   setDept,
   minValue,
@@ -68,6 +76,14 @@ function Page2({
     <>
       <div className="containerSidebarCards">
         <Sidebar
+          dateEvMin={dateEvMin}
+          setDateEvMin={setDateEvMin}
+          dateEvMax={dateEvMax}
+          setDateEvMax={setDateEvMax}
+          favoritesFilter={favoritesFilter}
+          setFavoritesFilter={setFavoritesFilter}
+          favorites={favorites}
+          setFavorites={setFavorites}
           dept={dept}
           setDept={setDept}
           free={free}
@@ -88,7 +104,7 @@ function Page2({
             .filter((e) => {
               return (
                 handleDate(e.fields.ouverturegranule).filter((el) => {
-                  return el <= calend[0].endDate && el >= calend[0].startDate;
+                  return el <= new Date(dateEvMax) && el >= new Date(dateEvMin);
                 }).length !== 0
               );
             })
@@ -102,7 +118,7 @@ function Page2({
               if (dept === "All") {
                 return e;
               }
-              return dept === "Sans Département"
+              return dept === "Sans DÃ©partement"
                 ? e.fields.departement === undefined
                 : e.fields.departement === dept;
             })
@@ -123,10 +139,10 @@ function Page2({
               }
               return e;
             })
-
             .map((e) => {
               return (
                 <Card
+                  id={e.recordid}
                   event={e.fields.nomoffre}
                   category={e.fields.categorie}
                   adress={e.fields.adresse2}
@@ -135,6 +151,8 @@ function Page2({
                   eventPrice={e.fields.tarifs}
                   payment={e.fields.modepaiement}
                   date={e.fields.ouverturegranule}
+                  favorites={favorites}
+                  setFavorites={setFavorites}
                 />
               );
             })}
@@ -166,4 +184,12 @@ Page2.propTypes = {
   setFree: PropTypes.string.isRequired,
   dept: PropTypes.string.isRequired,
   categ: PropTypes.string.isRequired,
+  dateEvMin: PropTypes.string.isRequired,
+  setDateEvMin: PropTypes.string.isRequired,
+  dateEvMax: PropTypes.string.isRequired,
+  setDateEvMax: PropTypes.string.isRequired,
+  favoritesFilter: PropTypes.string.isRequired,
+  setFavoritesFilter: PropTypes.string.isRequired,
+  favorites: PropTypes.string.isRequired,
+  setFavorites: PropTypes.string.isRequired,
 };

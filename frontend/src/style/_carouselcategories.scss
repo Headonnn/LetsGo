@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
+.carousel_size {
+  display: flex;
+  justify-content: center;
+}
 
 .carousel_size {
   display: flex;
@@ -10,11 +12,11 @@
   display: flex;
   justify-content: center;
   padding: 20px;
-  font-family: "BioRhyme";
+  font-family: "BioRhyme", serif;
 }
 h2 {
   text-align: center;
-  font-family: "BioRhyme";
+  font-family: "BioRhyme", serif;
 }
 
 .carousel {

@@ -12,9 +12,10 @@ import TarifGratuit from "./TarifGratuit";
 import Categ from "./Categ";
 import FiltreDate from "./FiltreDate";
 import Dept from "./Dept";
+import FavorisFilter from "./FavorisFilter";
 
 function Sidebar({
-  setDpt,
+  setDept,
   minValue,
   setMinValue,
   maxValue,
@@ -22,9 +23,16 @@ function Sidebar({
   free,
   setFree,
   api,
+  categ,
   setCateg,
   calend,
   setCalend,
+  dateEvMin,
+  dateEvMax,
+  setDateEvMin,
+  setDateEvMax,
+  favoritesFilter,
+  setFavoritesFilter,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -35,74 +43,116 @@ function Sidebar({
 
   return (
     <div className="container">
-      <nav className="sidebar" style={{ width: isOpen ? "400px" : "75px" }}>
-        <div className="top_section">
-          <h1 className="logo" style={{ display: isOpen ? "block" : "none" }}>
-            Let's go?
-          </h1>
-          <div className="bars" style={{ marginLeft: isOpen ? "50px" : "0px" }}>
+      <nav className="sidebar" style={{ width: isOpen ? "400px" : "55px" }}>
+        <div className="links">
+          <div
+            className="bars"
+            style={{ marginLeft: isOpen ? "175px" : "0px" }}
+          >
             <AiOutlineMenu onClick={toggle} />
           </div>
-        </div>
-        <div className="links">
-          <div id="icon">
-            <AiOutlineAppstore />
+
+          <br />
+
+          <div>
+            <AiOutlineAppstore
+              style={{ display: isOpen ? "none" : "block" }}
+              id="icon"
+            />
             <p style={{ display: isOpen ? "block" : "none" }} id="text">
               Catégories
             </p>
           </div>
-          {api && <Categ donnees={api} setCateg={setCateg} />}
+          <span style={{ display: isOpen ? "block" : "none" }}>
+            {api && <Categ donnees={api} setCateg={setCateg} categ={categ} />}{" "}
+          </span>
 
           <br />
 
-          <div id="icon">
-            <AiOutlineEuroCircle />
+          <div>
+            <AiOutlineEuroCircle
+              style={{ display: isOpen ? "none" : "block" }}
+              id="icon"
+            />
             <p style={{ display: isOpen ? "block" : "none" }} id="text">
               Tarif
             </p>
           </div>
-          <TarifGratuit setFree={setFree} />
 
-          {free !== "Gratuit" && (
-            <MultiRangeSlider
-              min={0}
-              max={300}
-              step={5}
-              label
-              ruler={false}
-              style={{
-                border: "none",
-                boxShadow: "none",
-                padding: "15px 10px",
-              }}
-              minValue={minValue}
-              maxValue={maxValue}
-              barInnerColor="#153462"
-              onInput={(e) => {
-                handleInput(e);
-              }}
+          <span style={{ display: isOpen ? "block" : "none" }}>
+            <FavorisFilter
+              favoritesFilter={favoritesFilter}
+              setFavoritesFilter={setFavoritesFilter}
             />
-          )}
+            <TarifGratuit
+              setFree={setFree}
+              free={free}
+              setMinValue={setMinValue}
+              setMaxValue={setMaxValue}
+            />
+
+            {free !== "Gratuit" && (
+              <MultiRangeSlider
+                min={0}
+                max={300}
+                step={5}
+                label
+                ruler={false}
+                style={{
+                  border: "none",
+                  boxShadow: "none",
+                  padding: "15px 10px",
+                }}
+                minValue={minValue}
+                maxValue={maxValue}
+                barInnerColor="#4fa095"
+                onInput={(e) => {
+                  handleInput(e);
+                }}
+              />
+            )}
+          </span>
 
           <br />
 
-          <div id="icon">
-            <AiOutlineCalendar />
+          <div>
+            <AiOutlineCalendar
+              style={{ display: isOpen ? "none" : "block" }}
+              id="icon"
+            />
             <p style={{ display: isOpen ? "block" : "none" }} id="text">
               Calendrier
             </p>
           </div>
-          {api && <FiltreDate calend={calend} setCalend={setCalend} />}
+          <span style={{ display: isOpen ? "block" : "none" }}>
+            {api && (
+              <FiltreDate
+                calend={calend}
+                setCalend={setCalend}
+                dateEvMin={dateEvMin}
+                dateEvMax={dateEvMax}
+                setDateEvMin={setDateEvMin}
+                setDateEvMax={setDateEvMax}
+              />
+            )}
+          </span>
 
           <br />
 
-          <div id="icon">
-            <FiMapPin />
+          <div>
+            <FiMapPin
+              style={{ display: isOpen ? "none" : "block" }}
+              id="icon"
+            />
             <p style={{ display: isOpen ? "block" : "none" }} id="text">
               C'est où ?
             </p>
           </div>
-          {api && <Dept donnees={api} setDpt={setDpt} />}
+          <div className="dept">
+            <span style={{ display: isOpen ? "block" : "none" }}>
+              {api && <Dept donnees={api} setDept={setDept} />}
+            </span>
+          </div>
 
           <br />
         </div>
@@ -124,11 +174,18 @@ Sidebar.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ).isRequired,
   setCateg: PropTypes.string.isRequired,
-  setDpt: PropTypes.string.isRequired,
+  setDept: PropTypes.string.isRequired,
   minValue: PropTypes.string.isRequired,
   setMinValue: PropTypes.string.isRequired,
   maxValue: PropTypes.string.isRequired,
   setMaxValue: PropTypes.string.isRequired,
   free: PropTypes.string.isRequired,
   setFree: PropTypes.string.isRequired,
+  categ: PropTypes.string.isRequired,
+  dateEvMin: PropTypes.string.isRequired,
+  dateEvMax: PropTypes.string.isRequired,
+  setDateEvMin: PropTypes.string.isRequired,
+  setDateEvMax: PropTypes.string.isRequired,
+  favoritesFilter: PropTypes.bool.isRequired,
+  setFavoritesFilter: PropTypes.bool.isRequired,
 };

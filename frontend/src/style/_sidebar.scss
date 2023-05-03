@@ -8,57 +8,64 @@
 .container {
   display: flex;
   justify-content: start;
+  align-items: center;
+  align-content: space-evenly;
+  // position: fixed;
   height: 100%;
   left: 0;
   top: 0;
-}
-main {
-  width: 100%;
-  padding: 20px;
+  z-index: 1;
 }
 .sidebar {
+  display: flex;
+  gap: 25px;
   background-color: var(--color-bg-variant);
   color: var(--color-text-light);
-  height: 100vh;
+  height: 100%;
   width: 200px;
   transition: all 0.5s;
 }
-.top_section {
-  display: flex;
-  align-items: center;
+.links {
+  color: var(--color-text-light);
   padding: 20px 10px;
-}
-.logo {
-  font-size: 30px;
+  gap: 25px;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
 }
 .bars {
   display: flex;
   font-size: 2rem;
   margin-left: 50px;
-}
-.links {
-  color: var(--color-text-light);
-  padding: 10px 10px;
-  gap: 15px;
+  cursor: pointer;
+  text-align: center;
   transition: all 0.5s;
+  -webkit-transition: all 0.25s;
+  position: absolute;
 }
-.links:hover {
-  background: var(--color-secondary);
-  color: var(--color-bg-variant);
-  transition: all 0.5s;
+.bars:hover {
+  transform: rotate(90deg);
+  color: #ff9900;
 }
-.active {
-  background: var(--color-secondary);
-  color: var(--color-bg-variant);
-}
+
 #icon {
+  display: flex;
+  margin-top: 60px;
   font-size: 2rem;
+  text-align: center;
 }
 #text {
-  font-family: "Titillium Web";
+  font-family: "Titillium Web", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 25px;
   color: var(--color-text-light);
   letter-spacing: 2px;
+}
+
+.dept {
+  display: flex;
+  justify-content: center;
 }
