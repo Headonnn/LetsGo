@@ -11,13 +11,13 @@ import Contact from "./components/Contact";
 import Home from "./pages/Home";
 import Card from "./components/Card";
 
+
 // import FavorisFilter from "./components/FavorisFilter";
 
 /* import _index from "./Styles/_index.scss"; */
-
 function App() {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [moreInfos, setMoreInfos] = useState(false);
+  const [favorites, setFavorites] = useState([]);
+  const [favoritesFilter, setFavoritesFilter] = useState(false);
   const [dept, setDpt] = useState("All");
   const [categ, setCateg] = useState("All");
   const [api, setApi] = useState(undefined);
@@ -98,7 +98,6 @@ function App() {
       <Recommandation />
       <Contact />
       <Home />
-      {/* <FavorisFilter setIsFavorite={setIsFavorite} /> */}
       <Sidebar
         setDpt={setDpt}
         categ={categ}
@@ -116,6 +115,8 @@ function App() {
         setDateEvMin={setDateEvMin}
         dateEvMax={dateEvMax}
         setDateEvMax={setDateEvMax}
+        favoritesFilter={favoritesFilter}
+        setFavoritesFilter={setFavoritesFilter}
       />
       {api &&
         api
@@ -157,21 +158,26 @@ function App() {
             }
             return e;
           })
+          .filter((e) => {
+            if (favoritesFilter === true) {
+              return favorites.includes(e.recordid);
+            }
+
+            return e;
+          })
           .map((e) => {
             return (
               <Card
+                id={e.recordid}
                 event={e.fields.nomoffre}
                 category={e.fields.categorie}
                 adress={e.fields.adresse2}
                 departement={e.fields.departement}
                 price={e.fields.tarifgratuit}
                 eventPrice={e.fields.tarifs}
-                payment={e.fields.modepaiement}
                 date={e.fields.ouverturegranule}
-                isFavorite={isFavorite}
-                setIsFavorite={setIsFavorite}
-                moreInfos={moreInfos}
-                setMoreInfos={setMoreInfos}
+                favorites={favorites}
+                setFavorites={setFavorites}
               />
             );
           })}

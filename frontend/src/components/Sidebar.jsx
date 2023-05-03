@@ -12,6 +12,7 @@ import TarifGratuit from "./TarifGratuit";
 import Categ from "./Categ";
 import FiltreDate from "./FiltreDate";
 import Dept from "./Dept";
+import FavorisFilter from "./FavorisFilter";
 
 function Sidebar({
   setDpt,
@@ -30,6 +31,8 @@ function Sidebar({
   dateEvMax,
   setDateEvMin,
   setDateEvMax,
+  favoritesFilter,
+  setFavoritesFilter,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -75,34 +78,39 @@ function Sidebar({
               Tarif
             </p>
           </div>
-          <span style={{ display: isOpen ? "block" : "none" }}>
-            <TarifGratuit
-              setFree={setFree}
-              free={free}
-              setMinValue={setMinValue}
-              setMaxValue={setMaxValue}
-            />
 
-            {free !== "Gratuit" && (
-              <MultiRangeSlider
-                min={0}
-                max={300}
-                step={5}
-                label
-                ruler={false}
-                style={{
-                  border: "none",
-                  boxShadow: "none",
-                  padding: "15px 10px",
-                }}
-                minValue={minValue}
-                maxValue={maxValue}
-                barInnerColor="#4fa095"
-                onInput={(e) => {
-                  handleInput(e);
-                }}
-              />
-            )}
+         
+          <span style={{ display: isOpen ? "block" : "none" }}>
+           <FavorisFilter
+            favoritesFilter={favoritesFilter}
+            setFavoritesFilter={setFavoritesFilter}
+          />
+          <TarifGratuit
+            setFree={setFree}
+            free={free}
+            setMinValue={setMinValue}
+            setMaxValue={setMaxValue}
+          />
+
+          {free !== "Gratuit" && (
+            <MultiRangeSlider
+              min={0}
+              max={300}
+              step={5}
+              label
+              ruler={false}
+              style={{
+                border: "none",
+                boxShadow: "none",
+                padding: "15px 10px",
+              }}
+              minValue={minValue}
+              maxValue={maxValue}
+              barInnerColor="#4fa095"
+              onInput={(e) => {
+                handleInput(e);
+              }}
+        
           </span>
 
           <br />
@@ -178,4 +186,6 @@ Sidebar.propTypes = {
   dateEvMax: PropTypes.string.isRequired,
   setDateEvMin: PropTypes.string.isRequired,
   setDateEvMax: PropTypes.string.isRequired,
+  favoritesFilter: PropTypes.bool.isRequired,
+  setFavoritesFilter: PropTypes.bool.isRequired,
 };

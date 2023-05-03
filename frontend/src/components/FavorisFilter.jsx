@@ -1,18 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function FavorisFilter({ setIsFavorite }) {
-  const handleChange = (e) => {
-    setIsFavorite(e.target.value);
+function FavorisFilter({ favoritesFilter, setFavoritesFilter }) {
+  const handleCheckBox = () => {
+    setFavoritesFilter(!favoritesFilter);
   };
-  console.warn("hello");
+
   return (
-    <div className="MyFavorites">
-      <p> FAVORIS :</p>
-      <select onChange={(e) => handleChange(e)}>
-        <option value="All"> All</option>
-        <option value="Mes Favoris"> Mes évenements favoris</option>
-      </select>
+    <div>
+      <label>
+        Mes événements favoris
+        <input type="checkbox" onChange={handleCheckBox} />
+      </label>
     </div>
   );
 }
@@ -20,5 +19,6 @@ function FavorisFilter({ setIsFavorite }) {
 export default FavorisFilter;
 
 FavorisFilter.propTypes = {
-  setIsFavorite: PropTypes.string.isRequired,
+  favoritesFilter: PropTypes.bool.isRequired,
+  setFavoritesFilter: PropTypes.bool.isRequired,
 };
