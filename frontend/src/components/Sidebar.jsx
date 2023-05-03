@@ -140,9 +140,11 @@ function Sidebar({
               C'est où ?
             </p>
           </div>
-          <span style={{ display: isOpen ? "block" : "none" }}>
-            {api && <Dept donnees={api} setDpt={setDpt} />}
-          </span>
+          <div className="dept">
+            <span style={{ display: isOpen ? "block" : "none" }}>
+              {api && <Dept donnees={api} setDpt={setDpt} />}
+            </span>
+          </div>
 
           <br />
         </div>
