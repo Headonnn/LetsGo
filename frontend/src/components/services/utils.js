@@ -14,7 +14,7 @@ import randonnee from "../../assets/array-pictures/randonne.jpg";
 import cirque from "../../assets/array-pictures/cirque.jpg";
 import marche from "../../assets/array-pictures/marche.jpg";
 import cinema from "../../assets/array-pictures/cinema.jpg";
-import brocante from "../../assets/array-pictures/brocantes_&_vide_greniers.jpg";
+import brocantes from "../../assets/array-pictures/brocantes.jpg";
 import foireEtSalon from "../../assets/array-pictures/foire_et_salon.jpg";
 import manifestationsNationales from "../../assets/array-pictures/manifestations_nationales.jpg";
 import theatre from "../../assets/array-pictures/theatre.jpg";
@@ -107,7 +107,7 @@ const arrayOfPictures = [
   {
     id: 17,
     title: "Brocantes",
-    url: brocante,
+    url: brocantes,
   },
   {
     id: 18,

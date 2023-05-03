@@ -12,10 +12,10 @@ import TarifGratuit from "./TarifGratuit";
 import Categ from "./Categ";
 import FiltreDate from "./FiltreDate";
 import Dept from "./Dept";
+import FavorisFilter from "./FavorisFilter";
 
 function Sidebar({
   setDpt,
-
   minValue,
   setMinValue,
   maxValue,
@@ -31,6 +31,8 @@ function Sidebar({
   dateEvMax,
   setDateEvMin,
   setDateEvMax,
+  favoritesFilter,
+  setFavoritesFilter,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -67,6 +69,10 @@ function Sidebar({
               Tarif
             </p>
           </div>
+          <FavorisFilter
+            favoritesFilter={favoritesFilter}
+            setFavoritesFilter={setFavoritesFilter}
+          />
           <TarifGratuit
             setFree={setFree}
             free={free}
@@ -156,4 +162,6 @@ Sidebar.propTypes = {
   dateEvMax: PropTypes.string.isRequired,
   setDateEvMin: PropTypes.string.isRequired,
   setDateEvMax: PropTypes.string.isRequired,
+  favoritesFilter: PropTypes.bool.isRequired,
+  setFavoritesFilter: PropTypes.bool.isRequired,
 };

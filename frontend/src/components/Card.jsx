@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import { AiOutlineHeart, AiFillCalendar, AiFillHome } from "react-icons/ai";
 import {
   MdPlace,
@@ -12,21 +13,41 @@ import arrayOfPictures from "./services/utils";
 import ArrayPictures from "./ArrayPictures";
 
 function Card({
+  id,
   event,
   category,
   price,
   eventPrice,
-  payment,
   adress,
   departement,
   date,
-  isFavorite,
-  setIsFavorite,
-  moreInfos,
-  setMoreInfos,
+  favorites,
+  setFavorites,
 }) {
-  const handleClickFavorite = () => setIsFavorite(false);
-  const handleClickNotFavorite = () => setIsFavorite(true);
+  const [moreInfos, setMoreInfos] = useState(false);
+  const [newRender, setNewRender] = useState(false);
+  const handleClickFavorite = () => {
+    if (favorites.indexOf(id) === -1) {
+      const newFavoris = favorites;
+
+      newFavoris.push(id);
+
+      setFavorites(newFavoris);
+
+      setNewRender(!newRender);
+    } else {
+      const deleteFavoris = favorites;
+      deleteFavoris.splice(
+        deleteFavoris.findIndex((e) => e === id),
+        1
+      );
+      setFavorites(deleteFavoris);
+      setNewRender(!newRender);
+    }
+  };
+
+  const handleMoreInfos = () => setMoreInfos(!moreInfos);
+
   const handleDateCard = (str) => {
     let dates = [];
     dates = str
@@ -63,11 +84,6 @@ function Card({
     return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
   };
 
-  function handleMoreInfos() {
-    setMoreInfos(!moreInfos);
-    console.warn("hello");
-  }
-
   return (
     <div className="Card">
       {arrayOfPictures.map((picture) =>
@@ -76,6 +92,7 @@ function Card({
             title={picture.title}
             url={picture.url}
             id={picture.id}
+            key={picture.id}
           />
         ) : null
       )}
@@ -87,11 +104,12 @@ function Card({
             : "Aucune information"}{" "}
         </p>
         <div id="favorite">
-          <button
-            type="button"
-            onClick={isFavorite ? handleClickFavorite : handleClickNotFavorite}
-          >
-            {isFavorite ? <FcLike size={23} /> : <AiOutlineHeart size={23} />}
+          <button type="button" onClick={handleClickFavorite}>
+            {favorites.indexOf(id) === -1 ? (
+              <AiOutlineHeart size={23} />
+            ) : (
+              <FcLike size={23} />
+            )}
           </button>
         </div>
         <p>
@@ -121,7 +139,6 @@ function Card({
             <p>
               <MdEuroSymbol /> : {eventPrice || "Aucune information"}{" "}
             </p>
-            <p>Payement : {payment || "Aucune information"}</p>
             <p>
               <MdPlace /> : {adress || "Aucune information"}{" "}
             </p>
@@ -142,12 +159,10 @@ Card.propTypes = {
   category: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   eventPrice: PropTypes.string.isRequired,
-  payment: PropTypes.string.isRequired,
   adress: PropTypes.string.isRequired,
   departement: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  isFavorite: PropTypes.string.isRequired,
-  setIsFavorite: PropTypes.string.isRequired,
-  moreInfos: PropTypes.string.isRequired,
-  setMoreInfos: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  favorites: PropTypes.string.isRequired,
+  setFavorites: PropTypes.string.isRequired,
 };
