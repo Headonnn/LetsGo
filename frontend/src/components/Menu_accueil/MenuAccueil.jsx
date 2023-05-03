@@ -27,34 +27,42 @@ function Navigation() {
     setShowCategories1(false);
     setShowCategories(false);
   }
+
   return (
     <>
       <nav className="navigation">
-        <ul>
-          <li onClick={handleClick} onKeyDown={handleClick} role="presentation">
-            <a href="#Categories">
+        <ul className="ul-nav">
+          <li
+            className="nav-li"
+            onClick={handleClick}
+            onKeyDown={handleClick}
+            role="presentation"
+          >
+            <a className="a-nav" href="#Categories">
               {" "}
-              <img src={BiCat} className="icon" alt="Categories" />
+              <img src={BiCat} className="nav-icon" alt="Categories" />
               Catégories
             </a>
           </li>
           <li
+            className="nav-li"
             onClick={handleClick1}
             onKeyDown={handleClick1}
             role="presentation"
           >
-            <a href="#Dates">
-              <img src={BiDate} className="icon" alt="Dates" />
+            <a className="a-nav" href="#Dates">
+              <img src={BiDate} className="nav-icon" alt="Dates" />
               Dates
             </a>
           </li>
           <li
+            className="nav-li"
             onClick={handleClick2}
             onKeyDown={handleClick2}
             role="presentation"
           >
-            <a href="#Localisation">
-              <img src={BiLoc} className="icon" alt="Localisation" />
+            <a className="a-nav" href="#Localisation">
+              <img src={BiLoc} className="nav-icon" alt="Localisation" />
               Localisation
             </a>
           </li>
