@@ -11,7 +11,6 @@ import Contact from "./components/Contact";
 import Home from "./pages/Home";
 import Card from "./components/Card";
 
-
 // import FavorisFilter from "./components/FavorisFilter";
 
 /* import _index from "./Styles/_index.scss"; */

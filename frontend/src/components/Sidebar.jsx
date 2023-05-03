@@ -79,38 +79,38 @@ function Sidebar({
             </p>
           </div>
 
-         
           <span style={{ display: isOpen ? "block" : "none" }}>
-           <FavorisFilter
-            favoritesFilter={favoritesFilter}
-            setFavoritesFilter={setFavoritesFilter}
-          />
-          <TarifGratuit
-            setFree={setFree}
-            free={free}
-            setMinValue={setMinValue}
-            setMaxValue={setMaxValue}
-          />
+            <FavorisFilter
+              favoritesFilter={favoritesFilter}
+              setFavoritesFilter={setFavoritesFilter}
+            />
+            <TarifGratuit
+              setFree={setFree}
+              free={free}
+              setMinValue={setMinValue}
+              setMaxValue={setMaxValue}
+            />
 
-          {free !== "Gratuit" && (
-            <MultiRangeSlider
-              min={0}
-              max={300}
-              step={5}
-              label
-              ruler={false}
-              style={{
-                border: "none",
-                boxShadow: "none",
-                padding: "15px 10px",
-              }}
-              minValue={minValue}
-              maxValue={maxValue}
-              barInnerColor="#4fa095"
-              onInput={(e) => {
-                handleInput(e);
-              }}
-        
+            {free !== "Gratuit" && (
+              <MultiRangeSlider
+                min={0}
+                max={300}
+                step={5}
+                label
+                ruler={false}
+                style={{
+                  border: "none",
+                  boxShadow: "none",
+                  padding: "15px 10px",
+                }}
+                minValue={minValue}
+                maxValue={maxValue}
+                barInnerColor="#4fa095"
+                onInput={(e) => {
+                  handleInput(e);
+                }}
+              />
+            )}
           </span>
 
           <br />
