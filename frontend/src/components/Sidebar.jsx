@@ -15,7 +15,7 @@ import Dept from "./Dept";
 import FavorisFilter from "./FavorisFilter";
 
 function Sidebar({
-  setDpt,
+  setDept,
   minValue,
   setMinValue,
   maxValue,
@@ -150,7 +150,7 @@ function Sidebar({
           </div>
           <div className="dept">
             <span style={{ display: isOpen ? "block" : "none" }}>
-              {api && <Dept donnees={api} setDpt={setDpt} />}
+              {api && <Dept donnees={api} setDept={setDept} />}
             </span>
           </div>
 
@@ -174,7 +174,7 @@ Sidebar.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ).isRequired,
   setCateg: PropTypes.string.isRequired,
-  setDpt: PropTypes.string.isRequired,
+  setDept: PropTypes.string.isRequired,
   minValue: PropTypes.string.isRequired,
   setMinValue: PropTypes.string.isRequired,
   maxValue: PropTypes.string.isRequired,

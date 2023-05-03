@@ -1,19 +1,17 @@
-@import "./style/app.scss";
-@import "./style/header.scss";
-@import "./style/categories.scss";
-@import "./style/recommandation.scss";
-@import "./style/contact.scss";
-@import "./style/footer.scss";
+@import "./style/_app.scss";
+@import "./style/_header.scss";
+@import "./style/_carouselcategories.scss";
+@import "./style/_recommandation.scss";
+@import "./style/_footer.scss";
 @import "./style/_card.scss";
 @import "./style/_tarifGratuit.scss";
-@import "./style/_MultiRangeSlider.scss";
-@import "./style/sidebar";
-
-@import "./style/navigation";
-@import "./style/navigationCategories";
-
+@import "./style/_sidebar";
+@import "./style/_navigation";
+@import "./style/_navigationCategories";
 @import "./style/_categ.scss";
 @import "./style/_filtreDate.scss";
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -34,8 +32,8 @@
   --color-text-dark: #153462;
 }
 
-@font-face {
-  font-family: "BioRhyme";
-  font-weight: 400;
-  src: url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
-}
+// @font-face {
+//   font-family: 'BioRhyme', serif;
+//   font-weight: 400;
+//   src: url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
+// }

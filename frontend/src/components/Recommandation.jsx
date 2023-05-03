@@ -6,7 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 function Recommandation() {
   const carousel = [
     {
-      title: "Evenements",
+      title: "Evènements",
       image: "./src/assets/images/evenements.jpg",
     },
     {
@@ -20,18 +20,22 @@ function Recommandation() {
   ];
 
   return (
-    <Carousel autoplay interval={5000} infiniteLoop showStatus={false}>
-      {carousel.map((slide) => (
-        <>
-          <div className="recommandation_title">Recommandation</div>
-          <div key={slide.title} />
-          <img src={slide.image} alt="" />
-          <div className="overlay">
-            <h2 className="overlay_title">{slide.title}</h2>
-          </div>
-        </>
-      ))}
-    </Carousel>
+    <>
+      <div className="categories_title">Recommandation</div>
+      <div className="carousel_size">
+        <Carousel autoPlay interval={10000} infiniteLoop showStatus={false}>
+          {carousel.map((slide) => (
+            <>
+              <div key={slide.title} />
+              <img src={slide.image} alt="" />
+              <div className="overlay">
+                <h2 className="overlay_title">{slide.title}</h2>
+              </div>
+            </>
+          ))}
+        </Carousel>
+      </div>
+    </>
   );
 }
 
