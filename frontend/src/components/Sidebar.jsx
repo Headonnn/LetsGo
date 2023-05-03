@@ -15,7 +15,6 @@ import Dept from "./Dept";
 
 function Sidebar({
   setDpt,
-
   minValue,
   setMinValue,
   maxValue,
@@ -42,17 +41,21 @@ function Sidebar({
   return (
     <div className="container">
       <nav className="sidebar" style={{ width: isOpen ? "400px" : "55px" }}>
-        <div className="top_section">
-          <h1 className="logo" style={{ display: isOpen ? "block" : "none" }}>
-            Let's go?
-          </h1>
-          <div className="bars" style={{ marginLeft: isOpen ? "50px" : "0px" }}>
+        <div className="links">
+          <div
+            className="bars"
+            style={{ marginLeft: isOpen ? "175px" : "0px" }}
+          >
             <AiOutlineMenu onClick={toggle} />
           </div>
-        </div>
-        <div className="links">
-          <div id="icon">
-            <AiOutlineAppstore />
+
+          <br />
+
+          <div>
+            <AiOutlineAppstore
+              style={{ display: isOpen ? "none" : "block" }}
+              id="icon"
+            />
             <p style={{ display: isOpen ? "block" : "none" }} id="text">
               Catégories
             </p>
@@ -63,8 +66,11 @@ function Sidebar({
 
           <br />
 
-          <div id="icon">
-            <AiOutlineEuroCircle />
+          <div>
+            <AiOutlineEuroCircle
+              style={{ display: isOpen ? "none" : "block" }}
+              id="icon"
+            />
             <p style={{ display: isOpen ? "block" : "none" }} id="text">
               Tarif
             </p>
@@ -98,10 +104,14 @@ function Sidebar({
               />
             )}
           </span>
+
           <br />
 
-          <div id="icon">
-            <AiOutlineCalendar />
+          <div>
+            <AiOutlineCalendar
+              style={{ display: isOpen ? "none" : "block" }}
+              id="icon"
+            />
             <p style={{ display: isOpen ? "block" : "none" }} id="text">
               Calendrier
             </p>
@@ -118,17 +128,24 @@ function Sidebar({
               />
             )}
           </span>
+
           <br />
 
-          <div id="icon">
-            <FiMapPin />
+          <div>
+            <FiMapPin
+              style={{ display: isOpen ? "none" : "block" }}
+              id="icon"
+            />
             <p style={{ display: isOpen ? "block" : "none" }} id="text">
               C'est où ?
             </p>
           </div>
-          <span style={{ display: isOpen ? "block" : "none" }}>
-            {api && <Dept donnees={api} setDpt={setDpt} />}
-          </span>
+          <div className="dept">
+            <span style={{ display: isOpen ? "block" : "none" }}>
+              {api && <Dept donnees={api} setDpt={setDpt} />}
+            </span>
+          </div>
+
           <br />
         </div>
       </nav>

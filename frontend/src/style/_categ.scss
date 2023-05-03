@@ -1,17 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
 
 .boutonsCategCont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 100%;
+  padding: 4px;
+
   .boutonCateg {
-    display: flex;
     background-color: white;
     border-radius: 4px;
     color: black;
-    margin: 7px;
-    height: 50px;
+    margin: 5px;
+    height: 70px;
+    padding: 3px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-family: "Titillium Web";
+    text-align: center;
     &:hover {
       transform: translateY(-1px);
       box-shadow: rgba(77, 79, 83, 0.2) 0px 8px 24px;
@@ -22,8 +32,4 @@
     background-color: var(--color-secondary);
     color: white;
   }
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  padding: 4px;
 }
