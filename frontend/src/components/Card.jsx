@@ -144,7 +144,7 @@ function Card({
         {moreInfos && (
           <>
             <p>
-              <TbCurrencyEuroOff /> : {beauPrix(eventPrice) || "Aucune information"}{" "}
+              <TbCurrencyEuroOff /> : {beauPrix(price) || "Aucune information"}{" "}
             </p>
             <p>
               <IoMdPricetag /> : {eventPrice || "Aucune information"}{" "}
