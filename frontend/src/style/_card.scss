@@ -76,3 +76,19 @@
     max-width: 80%;
   }
 }
+@media screen and (min-width: 768px) {
+  .cardsDesktop {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-width: 50%;
+    max-height: 50%;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+  }
+  .CardImg {
+    max-height: 25vh;
+  }
+}
