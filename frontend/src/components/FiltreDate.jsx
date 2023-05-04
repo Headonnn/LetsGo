@@ -12,8 +12,13 @@ function FiltreDate({ calend, setCalend, setDateEvMin, setDateEvMax }) {
     setSelectedDate(e.target.id);
 
     if (e.target.id === "auj") {
-      setDateEvMin(new Date().toString());
-      setDateEvMax(new Date().toString());
+      const auj = new Date();
+      const auj2 = new Date();
+      auj.setHours(0, 0, 0, 0);
+      auj2.setHours(23, 59, 59);
+
+      setDateEvMin(auj.toString());
+      setDateEvMax(auj2.toString());
     }
     if (e.target.id === "demain") {
       const tomorrow = new Date();
@@ -23,10 +28,14 @@ function FiltreDate({ calend, setCalend, setDateEvMin, setDateEvMax }) {
     }
     if (e.target.id === "we") {
       const we = new Date();
+      const we2 = new Date();
       const diff = 6 - we.getDay();
+      const diff2 = 7 - we.getDay();
       we.setHours(24 * diff, 0, 0, 0);
+      we2.setHours(24 * diff2, 0, 0, 0);
+
       setDateEvMin(we.toString());
-      setDateEvMax(we.toString());
+      setDateEvMax(we2.toString());
     }
     if (e.target.id === "month") {
       const mo = new Date();

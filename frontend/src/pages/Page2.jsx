@@ -118,7 +118,7 @@ function Page2({
               if (dept === "All") {
                 return e;
               }
-              return dept === "Sans DÃ©partement"
+              return dept === "Sans Département"
                 ? e.fields.departement === undefined
                 : e.fields.departement === dept;
             })
