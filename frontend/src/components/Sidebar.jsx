@@ -147,23 +147,22 @@ function Sidebar({
               setDateEvMin={setDateEvMin}
               setDateEvMax={setDateEvMax}
             />
-            <p style={{ display: isOpen ? "block" : "none" }} id="text">
-              C'est où ?
-            </p>
-          </div>
-          <div className="dept">
-            <span
-              className="deptSpan"
-              style={{ display: isOpen ? "block" : "none" }}
-            >
-              {api && <Dept donnees={api} setDept={setDept} />}
-            </span>
-          </div>
-
-          <br />
+          )}
+        </span>
+        <div>
+          <FiMapPin style={{ display: isOpen ? "none" : "block" }} id="icon" />
+          <p style={{ display: isOpen ? "block" : "none" }} id="text">
+            C'est où ?
+          </p>
         </div>
-
-        <br />
+        <div className="dept">
+          <span
+            className="deptSpan"
+            style={{ display: isOpen ? "block" : "none" }}
+          >
+            {api && <Dept donnees={api} setDept={setDept} />}
+          </span>
+        </div>
       </div>
     </nav>
   );
