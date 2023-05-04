@@ -3,11 +3,12 @@ import { useState } from "react";
 import { AiOutlineHeart, AiFillCalendar, AiFillHome } from "react-icons/ai";
 import {
   MdPlace,
-  MdEuroSymbol,
   MdCategory,
   MdExpandMore,
   MdExpandLess,
 } from "react-icons/md";
+import { TbCurrencyEuroOff } from "react-icons/tb";
+import { IoMdPricetag } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
 import arrayOfPictures from "./services/utils";
 import ArrayPictures from "./ArrayPictures";
@@ -135,15 +136,17 @@ function Card({
         </div>
         {moreInfos && (
           <>
-            <p>Gratuit : {price || "Aucune information"}</p>
             <p>
-              <MdEuroSymbol /> : {eventPrice || "Aucune information"}{" "}
+              <TbCurrencyEuroOff /> : {price || "Aucune information"}
             </p>
             <p>
-              <MdPlace /> : {adress || "Aucune information"}{" "}
+              <IoMdPricetag /> : {eventPrice || "Aucune information"}{" "}
             </p>
             <p>
               <AiFillHome /> : {departement || "Aucune information"}{" "}
+            </p>
+            <p>
+              <MdPlace /> : {adress || "Aucune information"}{" "}
             </p>
           </>
         )}
