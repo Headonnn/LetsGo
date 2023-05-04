@@ -139,6 +139,13 @@ function Page2({
               }
               return e;
             })
+            .filter((e) => {
+              if (favoritesFilter === true) {
+                return favorites.includes(e.recordid);
+              }
+
+              return e;
+            })
             .map((e) => {
               return (
                 <Card
