@@ -149,7 +149,10 @@ function Sidebar({
             </p>
           </div>
           <div className="dept">
-            <span style={{ display: isOpen ? "block" : "none" }}>
+            <span
+              className="deptSpan"
+              style={{ display: isOpen ? "block" : "none" }}
+            >
               {api && <Dept donnees={api} setDept={setDept} />}
             </span>
           </div>

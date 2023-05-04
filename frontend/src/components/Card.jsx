@@ -75,6 +75,13 @@ function Card({
     }
     return "Aucune info";
   };
+  const beauPrix = (str) => {
+    if (str === undefined) {
+      return "Aucune information";
+    }
+    const p = str.replace(/\|/g, " ");
+    return p;
+  };
   const belleDate = (str) => {
     if (str === "Aucune info") {
       return "Aucune info";
@@ -137,7 +144,7 @@ function Card({
           <>
             <p>Gratuit : {price || "Aucune information"}</p>
             <p>
-              <MdEuroSymbol /> : {eventPrice || "Aucune information"}{" "}
+              <MdEuroSymbol /> : {beauPrix(eventPrice) || "Aucune information"}{" "}
             </p>
             <p>
               <MdPlace /> : {adress || "Aucune information"}{" "}
