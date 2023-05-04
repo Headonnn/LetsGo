@@ -67,4 +67,15 @@
 .dept {
   display: flex;
   justify-content: center;
+  width: 100%;
+}
+.deptSpan {
+  width: 100%;
+}
+select {
+  width: 100%;
+  font-family: "Titillium Web", sans-serif;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 1rem;
 }
