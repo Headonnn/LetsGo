@@ -2,36 +2,47 @@ import React from "react";
 import "../style/_recommandation.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import PropTypes from "prop-types";
 
-function Recommandation() {
+function Recommandation({ setCateg }) {
+  const handleClickCoeur = (e) => {
+    setCateg(e.target.id);
+  };
   const carousel = [
     {
-      title: "Evènements",
-      image: "./src/assets/images/evenements.jpg",
+      title: "Exposition",
+      titletrue: "Exposition",
+      image: "./src/assets/images/expo.jpg",
     },
     {
-      title: "Patrimoine",
-      image: "./src/assets/images/patrimoine.jpg",
+      title: "Théâtre",
+      titletrue: "Théâtre",
+      image: "./src/assets/images/theatre1.jpg",
     },
     {
-      title: "Activites",
-      image: "./src/assets/images/activites.jpg",
+      title: "Rallye",
+      titletrue: "Rallye",
+      image: "./src/assets/images/rally.jpg",
     },
   ];
 
   return (
     <>
-      <div className="categories_title">Recommandation</div>
-      <div className="carousel_size">
+      <div className="recommandation_title2">Les coups de coeur</div>
+      <div className="carousel_size2">
         <Carousel autoPlay interval={10000} infiniteLoop showStatus={false}>
           {carousel.map((slide) => (
-            <>
-              <div key={slide.title} />
+            <div
+              key={slide.title}
+              onClick={(e) => handleClickCoeur(e)}
+              onKeyDown={(e) => handleClickCoeur(e)}
+              role="presentation"
+            >
               <img src={slide.image} alt="" />
-              <div className="overlay">
-                <h2 className="overlay_title">{slide.title}</h2>
+              <div className="overlay2">
+                <h2 className="overlay_title2">{slide.title}</h2>
               </div>
-            </>
+            </div>
           ))}
         </Carousel>
       </div>
@@ -40,3 +51,7 @@ function Recommandation() {
 }
 
 export default Recommandation;
+
+Recommandation.propTypes = {
+  setCateg: PropTypes.string.isRequired,
+};
