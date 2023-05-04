@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Page1 api={api} categ={setCateg} />} />
+        <Route path="/" element={<Page1 api={api} setCateg={setCateg} />} />
         <Route
           path="/page2"
           element={
