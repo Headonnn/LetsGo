@@ -1,29 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
-.container {
+.sidebar {
   display: flex;
-  justify-content: start;
-  align-items: center;
-  align-content: space-evenly;
-  // position: fixed;
+  position: absolute;
+  background-color: var(--color-bg-variant);
+  color: var(--color-text-light);
+  height: 100%;
+  transition: all 0.5s;
   height: 100%;
   left: 0;
   top: 0;
   z-index: 1;
-}
-.sidebar {
-  display: flex;
-  gap: 25px;
-  background-color: var(--color-bg-variant);
-  color: var(--color-text-light);
-  height: 100%;
-  width: 200px;
-  transition: all 0.5s;
 }
 .links {
   color: var(--color-text-light);
@@ -36,7 +22,6 @@
 .bars {
   display: flex;
   font-size: 2rem;
-  margin-left: 50px;
   cursor: pointer;
   text-align: center;
   transition: all 0.5s;
@@ -45,7 +30,20 @@
 }
 .bars:hover {
   transform: rotate(90deg);
-  color: #ff9900;
+  color: var(--color-secondary);
+}
+.home {
+  display: flex;
+  font-size: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-text-light);
+  transition: all 0.5s;
+  -webkit-transition: all 0.25s;
+  position: absolute;
+}
+.home:hover {
+  color: var(--color-secondary);
 }
 
 #icon {
@@ -55,6 +53,8 @@
   text-align: center;
 }
 #text {
+  display: flex;
+  justify-content: center;
   font-family: "Titillium Web", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
@@ -64,7 +64,6 @@
   color: var(--color-text-light);
   letter-spacing: 2px;
 }
-
 .dept {
   display: flex;
   justify-content: center;

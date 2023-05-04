@@ -74,7 +74,7 @@ function Page2({
 
   return (
     <>
-      <div className="containerSidebarCards">
+      <div className="page2Container">
         <Sidebar
           dateEvMin={dateEvMin}
           setDateEvMin={setDateEvMin}
@@ -139,21 +139,30 @@ function Page2({
               }
               return e;
             })
+            .filter((e) => {
+              if (favoritesFilter === true) {
+                return favorites.includes(e.recordid);
+              }
+
+              return e;
+            })
             .map((e) => {
               return (
-                <Card
-                  id={e.recordid}
-                  event={e.fields.nomoffre}
-                  category={e.fields.categorie}
-                  adress={e.fields.adresse2}
-                  departement={e.fields.departement}
-                  price={e.fields.tarifgratuit}
-                  eventPrice={e.fields.tarifs}
-                  payment={e.fields.modepaiement}
-                  date={e.fields.ouverturegranule}
-                  favorites={favorites}
-                  setFavorites={setFavorites}
-                />
+                <div className="containerCards">
+                  <Card
+                    id={e.recordid}
+                    event={e.fields.nomoffre}
+                    category={e.fields.categorie}
+                    adress={e.fields.commune}
+                    departement={e.fields.departement}
+                    price={e.fields.tarifgratuit}
+                    eventPrice={e.fields.tarifs}
+                    payment={e.fields.modepaiement}
+                    date={e.fields.ouverturegranule}
+                    favorites={favorites}
+                    setFavorites={setFavorites}
+                  />
+                </div>
               );
             })}
       </div>
