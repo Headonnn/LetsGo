@@ -47,14 +47,11 @@
       transform: scale(1.15);
     }
   }
-  .card-details {
-    position: absolute;
-    bottom: 10%;
-    right: 16%;
-  }
+
   #detailsArrow {
     position: absolute;
-    bottom: 1em;
+    top: 5.5em;
+    right: 1.3em;
     cursor: pointer;
     transition: all 0.1s;
     background: none;
@@ -76,23 +73,5 @@
   .Card {
     display: flex;
     flex-direction: column;
-  }
-  #favorite {
-    position: absolute;
-    border: none;
-    background: none;
-    top: 25px;
-    right: 1em;
-  }
-  #detailsArrow {
-    position: absolute;
-    bottom: 1em;
-    cursor: pointer;
-    transition: all 0.1s;
-    background: none;
-
-    &:hover {
-      transform: scale(1.2);
-    }
   }
 }
