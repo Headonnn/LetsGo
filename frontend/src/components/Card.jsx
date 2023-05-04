@@ -67,7 +67,13 @@ function Card({
 
     dates = dates.map((e) => new Date(e));
 
-    dates = dates.filter((e) => e - new Date() > 0);
+    dates = dates.filter((e) => {
+      const auj = new Date();
+
+      auj.setHours(0, 0, 0, 0);
+
+      return e - auj >= 0;
+    });
     if (dates.length > 0) {
       dates = dates.sort((a, b) => a - b);
 
