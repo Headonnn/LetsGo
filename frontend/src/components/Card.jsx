@@ -126,27 +126,23 @@ function Card({
             )}
           </button>
         </div>
+        <button
+          type="button"
+          id="detailsArrow"
+          onClick={handleMoreInfos}
+          className="card-details-button"
+        >
+          {" "}
+          {moreInfos ? <MdExpandLess size={23} /> : <MdExpandMore size={23} />}
+        </button>
+
         <p>
           <MdCategory /> : {category || "Aucune information"}{" "}
         </p>
         <p className="CardDate">
           <AiFillCalendar /> : {belleDate(handleDateCard(date))}
         </p>
-        <div className="card-details">
-          <button
-            type="button"
-            id="detailsArrow"
-            onClick={handleMoreInfos}
-            className="card-details-button"
-          >
-            {" "}
-            {moreInfos ? (
-              <MdExpandLess size={23} />
-            ) : (
-              <MdExpandMore size={23} />
-            )}
-          </button>
-        </div>
+
         {moreInfos && (
           <>
             <p>

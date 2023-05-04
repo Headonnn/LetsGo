@@ -106,7 +106,7 @@ const arrayOfPictures = [
   },
   {
     id: 17,
-    title: "Brocantes",
+    title: "Brocantes & vide-greniers",
     url: brocantes,
   },
   {
