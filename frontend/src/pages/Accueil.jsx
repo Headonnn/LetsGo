@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import "../index.scss";
 import Header from "../components/Header";
@@ -23,7 +23,17 @@ function Accueil({
   setCateg,
   setDateEvMin,
   setDateEvMax,
+  setFree,
+  setFavoritesFilter,
 }) {
+  useEffect(() => {
+    setCateg("All");
+    setDept("All");
+    setDateEvMin(new Date("01/01/2023").toString());
+    setDateEvMax(new Date("12/31/2023").toString());
+    setFree("Payant et Gratuit");
+    setFavoritesFilter(false);
+  }, []);
   return (
     <div className="Accueil">
       <Header />
@@ -63,4 +73,6 @@ Accueil.propTypes = {
   api: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ).isRequired,
+  setFree: PropTypes.string.isRequired,
+  setFavoritesFilter: PropTypes.string.isRequired,
 };
