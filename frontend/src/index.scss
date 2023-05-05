@@ -35,14 +35,25 @@
 
 //* Carousel */
 
-.carousel_size {
+.carousel_size, .carousel_size_two {
   margin: 0 auto;
   max-width: 70%;
+
+  img {
+    max-height: 25vh;
+    object-fit: cover;
+  }
 }
+
+.carousel_size_two {
+  padding-bottom: 10vh;
+}
+
 
 .categories_title {
   display: flex;
   justify-content: center;
+  text-align: center;
   padding: 20px;
   font-family: "BioRhyme", serif;
   text-transform: uppercase;
@@ -67,4 +78,15 @@
   text-align: center;
   font-family: "BioRhyme", serif;
   margin: 0.8rem 0 1rem 0;
+}
+
+@media screen and (min-width : 700px) {
+  .carousel_size, .carousel_size_two {
+  
+  
+    img {
+      max-height: 80vh;
+      object-fit: cover;
+    }
+  }
 }

@@ -30,7 +30,7 @@ function Recommandation({ setCateg }) {
   return (
     <>
       <div className="categories_title">Les coups de coeur</div>
-      <div className="carousel_size">
+      <div className="carousel_size_two">
         <Carousel autoPlay interval={10000} infiniteLoop showStatus={false}>
           {carousel.map((slide) => (
             <NavLink to="/Evenements">
