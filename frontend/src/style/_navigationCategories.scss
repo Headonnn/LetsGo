@@ -1,16 +1,43 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+body {
+  background-color: var(--color-bg);
 }
 
-.categories {
+.navigation-categories-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.navigation-categories {
+  display: flex;
+  margin: 0 auto;
+  background: var(--color-bg);
+  color: var(--color-text-dark);
+  padding: 1rem;
+}
+
+.navigation-lieux-container {
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-categories-lieux {
   width: 100%;
   height: 40vh;
   margin: 0 auto;
-  background: var(--color-bg-variant);
-  color: var(--color-text-light);
-  font-family: "BioRhyme", serif;
+  background: var(--color-bg);
+  color: var(--color-text-dark);
+  padding: 1rem;
+}
 
+.navigation-categories-dates {
+  width: 100%;
+  height: 40vh;
+  margin: 0 auto;
+  background: var(--color-bg);
+  color: var(--color-text-dark);
   padding: 1rem;
 }
