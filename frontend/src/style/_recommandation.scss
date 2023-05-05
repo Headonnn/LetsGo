@@ -1,13 +1,22 @@
-.carousel_size {
+.carousel_size2 {
   display: flex;
   justify-content: center;
 }
+
 .carousel-root {
   max-width: 70%;
 }
 
-.recommandation_title {
-  font-family: "BioRhyme";
+.recommandation_title2 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-family: "BioRhyme", serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  // font-size: 2rem;
+  color: var(--color-text-dark);
+  letter-spacing: 2px;
 }
 .carousel {
   position: relative;
@@ -19,7 +28,7 @@ li.slide.selected {
 .carousel .thumbs {
   display: none;
 }
-.carousel .overlay {
+.carousel .overlay2 {
   width: 80%;
   position: absolute;
   top: 50%;
@@ -30,6 +39,6 @@ li.slide.selected {
   background: rgba(0, 0, 0, 0.6);
   color: var(--color-bg);
 }
-.carousel .overlay_title {
+.carousel .overlay_title2 {
   margin: 0.8rem 0 1rem 0;
 }
