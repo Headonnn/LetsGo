@@ -4,7 +4,7 @@
 
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  width: 100%;
+  max-width: 80%;
   padding: 4px;
   .grand {
     grid-template-rows: repeat(7, 1fr);

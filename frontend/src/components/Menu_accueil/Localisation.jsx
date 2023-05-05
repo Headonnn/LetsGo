@@ -20,9 +20,9 @@ function Localisation({ donnees, setDept }) {
 
     return filtLocData.map((e) => {
       return e === undefined ? (
-        <NavLink to="/Page2">
+        <NavLink to="/Evenements">
           <div
-            className="navigation-categories"
+            className="navigation-lieux"
             key="Sans Categorie"
             id="Sans Categorie"
             onClick={(el) => handleDepaChange(el)}
@@ -33,9 +33,9 @@ function Localisation({ donnees, setDept }) {
           </div>
         </NavLink>
       ) : (
-        <NavLink to="/Page2">
+        <NavLink to="/Evenements">
           <div
-            className="navigation-categories"
+            className="navigation-lieux"
             key={e}
             id={e}
             onClick={(el) => handleDepaChange(el)}
@@ -51,7 +51,7 @@ function Localisation({ donnees, setDept }) {
 
   return (
     <div
-      className=".navigation-lieux-container"
+      className="navigation-lieux-container"
       onChange={(e) => handleDepaChange(e)}
     >
       {handleLoc()}

@@ -43,6 +43,8 @@ function Sidebar({
     setMaxValue(e.maxValue);
   };
   const barStyle = {
+    // marginLeft: isOpen ? "42%" : "0%",
+
     marginLeft: isOpen ? "175px" : "0px",
   };
   const homeStyle = {
@@ -50,6 +52,8 @@ function Sidebar({
   };
 
   return (
+    // <nav className="sidebar" style={{ width: isOpen ? "25%" : "3.5%" }}>
+
     <nav className="sidebar" style={{ width: isOpen ? "400px" : "55px" }}>
       <div className="links">
         <span style={{ display: isOpen ? "block" : "none" }}>
@@ -92,10 +96,9 @@ function Sidebar({
             id="icon"
           />
           <p style={{ display: isOpen ? "block" : "none" }} id="text">
-            Tarif
+            Tarifs
           </p>
         </div>
-
         <span style={{ display: isOpen ? "block" : "none" }}>
           <TarifGratuit
             setFree={setFree}
@@ -103,7 +106,6 @@ function Sidebar({
             setMinValue={setMinValue}
             setMaxValue={setMaxValue}
           />
-
           {free !== "Gratuit" && (
             <MultiRangeSlider
               min={0}
@@ -137,6 +139,7 @@ function Sidebar({
             Calendrier
           </p>
         </div>
+
         <span style={{ display: isOpen ? "block" : "none" }}>
           {api && (
             <FiltreDate
@@ -149,12 +152,18 @@ function Sidebar({
             />
           )}
         </span>
+
+        <br />
+
         <div>
           <FiMapPin style={{ display: isOpen ? "none" : "block" }} id="icon" />
           <p style={{ display: isOpen ? "block" : "none" }} id="text">
             C'est où ?
           </p>
         </div>
+
+        <br />
+
         <div className="dept">
           <span
             className="deptSpan"

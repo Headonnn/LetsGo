@@ -10,8 +10,12 @@ function Dates({ setDateEvMin, setDateEvMax }) {
     setSelectedDay(e.target.id);
 
     if (e.target.id === "auj") {
-      setDateEvMin(new Date().toString());
-      setDateEvMax(new Date().toString());
+      const auj = new Date();
+      const auj2 = new Date();
+      auj.setHours(0, 0, 0, 0);
+      auj2.setHours(23, 59, 59);
+      setDateEvMin(auj.toString());
+      setDateEvMax(auj2.toString());
     }
     if (e.target.id === "demain") {
       const tomorrow = new Date();
@@ -39,7 +43,7 @@ function Dates({ setDateEvMin, setDateEvMax }) {
   };
   return (
     <div className="FiltreDate">
-      <NavLink to="/Page2">
+      <NavLink to="/Evenements">
         <div
           className={`date ${
             selectedDay === "auj" ? "selected" : "notSelected"
@@ -52,7 +56,7 @@ function Dates({ setDateEvMin, setDateEvMax }) {
           Aujourd'hui
         </div>
       </NavLink>
-      <NavLink to="/Page2">
+      <NavLink to="/Evenements">
         <div
           className={`date ${
             selectedDay === "demain" ? "selected" : "notSelected"
@@ -65,7 +69,7 @@ function Dates({ setDateEvMin, setDateEvMax }) {
           Demain
         </div>
       </NavLink>
-      <NavLink to="/Page2">
+      <NavLink to="/Evenements">
         <div
           className={`date ${
             selectedDay === "we" ? "selected" : "notSelected"
@@ -78,7 +82,7 @@ function Dates({ setDateEvMin, setDateEvMax }) {
           Ce week-end
         </div>
       </NavLink>
-      <NavLink to="/Page2">
+      <NavLink to="/Evenements">
         <div
           className={`date ${
             selectedDay === "month" ? "selected" : "notSelected"
@@ -91,7 +95,7 @@ function Dates({ setDateEvMin, setDateEvMax }) {
           Ce mois-ci
         </div>
       </NavLink>
-      <NavLink to="/Page2">
+      <NavLink to="/Evenements">
         {" "}
         <div
           className={`date ${

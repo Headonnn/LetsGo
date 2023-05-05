@@ -2,7 +2,7 @@
 import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { NavLink } from "react-router-dom";
-import "../style/_carouselcategories.scss";
+import "../index.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PropTypes from "prop-types";
@@ -46,8 +46,9 @@ function CarouselCategories({ setCateg }) {
       <div className="carousel_size">
         <Carousel autoPlay interval={10000} infiniteLoop showStatus={false}>
           {carousel.map((slide) => (
-            <NavLink to="/Page2">
+            <NavLink to="/Evenements">
               <div
+                id={slide.titletrue}
                 key={slide.title}
                 onClick={(e) => handleClickCategories(e)}
                 onKeyDown={(e) => handleClickCategories(e)}

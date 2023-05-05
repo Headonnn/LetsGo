@@ -1,10 +1,12 @@
 .footer {
   display: flex;
   justify-content: center;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: var(--color-text-dark);
+  z-index: 1;
 
   .icons {
     padding: 10px;

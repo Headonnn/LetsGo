@@ -15,7 +15,7 @@ import Footer from "../components/Footer";
 // import FiltreDate from "./components/FiltreDate";
 /* import _index from "./Styles/_index.scss"; */
 
-function Page1({
+function Accueil({
   api,
   dept,
   setDept,
@@ -25,7 +25,7 @@ function Page1({
   setDateEvMax,
 }) {
   return (
-    <div className="Page1">
+    <div className="Accueil">
       <Header />
       <Navigation
         donnees={api}
@@ -40,15 +40,20 @@ function Page1({
         categ={categ}
         setCateg={setCateg}
       />
-      <Recommandation />
+      <Recommandation
+        // dept={dept}
+        // setDept={setDept}
+        // categ={categ}
+        setCateg={setCateg}
+      />
       <Footer />
     </div>
   );
 }
 
-export default Page1;
+export default Accueil;
 
-Page1.propTypes = {
+Accueil.propTypes = {
   dept: PropTypes.string.isRequired,
   setDept: PropTypes.string.isRequired,
   setDateEvMin: PropTypes.string.isRequired,

@@ -22,7 +22,7 @@ function Categories({ donnees, setCateg }) {
     return filtcategData.map((e) => {
       if (e === undefined) {
         return (
-          <NavLink to="/Page2">
+          <NavLink to="/Evenements">
             <div
               className="navigation-categories"
               key="Sans Categorie"
@@ -37,7 +37,7 @@ function Categories({ donnees, setCateg }) {
         );
       }
       return (
-        <NavLink to="/Page2">
+        <NavLink to="/Evenements">
           <div
             className="navigation-categories"
             key={e}
