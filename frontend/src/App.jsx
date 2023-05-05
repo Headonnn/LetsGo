@@ -42,6 +42,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+
         <Route
           path="/"
           element={
@@ -56,6 +57,7 @@ function App() {
             />
           }
         />
+
         <Route
           path="/page2"
           element={

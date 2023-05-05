@@ -3,11 +3,12 @@ import { useState } from "react";
 import { AiOutlineHeart, AiFillCalendar, AiFillHome } from "react-icons/ai";
 import {
   MdPlace,
-  MdEuroSymbol,
   MdCategory,
   MdExpandMore,
   MdExpandLess,
 } from "react-icons/md";
+import { TbCurrencyEuroOff } from "react-icons/tb";
+import { IoMdPricetag } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
 import arrayOfPictures from "./services/utils";
 import ArrayPictures from "./ArrayPictures";
@@ -67,13 +68,26 @@ function Card({
 
     dates = dates.map((e) => new Date(e));
 
-    dates = dates.filter((e) => e - new Date() > 0);
+    dates = dates.filter((e) => {
+      const auj = new Date();
+
+      auj.setHours(0, 0, 0, 0);
+
+      return e - auj >= 0;
+    });
     if (dates.length > 0) {
       dates = dates.sort((a, b) => a - b);
 
       return dates[0].toString();
     }
     return "Aucune info";
+  };
+  const beauPrix = (str) => {
+    if (str === undefined) {
+      return "Aucune information";
+    }
+    const p = str.replace(/\|/g, " ");
+    return p;
   };
   const belleDate = (str) => {
     if (str === "Aucune info") {
@@ -112,38 +126,36 @@ function Card({
             )}
           </button>
         </div>
+        <button
+          type="button"
+          id="detailsArrow"
+          onClick={handleMoreInfos}
+          className="card-details-button"
+        >
+          {" "}
+          {moreInfos ? <MdExpandLess size={23} /> : <MdExpandMore size={23} />}
+        </button>
+
         <p>
           <MdCategory /> : {category || "Aucune information"}{" "}
         </p>
         <p className="CardDate">
           <AiFillCalendar /> : {belleDate(handleDateCard(date))}
         </p>
-        <div className="card-details">
-          <button
-            type="button"
-            id="detailsArrow"
-            onClick={handleMoreInfos}
-            className="card-details-button"
-          >
-            {" "}
-            {moreInfos ? (
-              <MdExpandLess size={23} />
-            ) : (
-              <MdExpandMore size={23} />
-            )}
-          </button>
-        </div>
+
         {moreInfos && (
           <>
-            <p>Gratuit : {price || "Aucune information"}</p>
             <p>
-              <MdEuroSymbol /> : {eventPrice || "Aucune information"}{" "}
+              <TbCurrencyEuroOff /> : {beauPrix(price) || "Aucune information"}{" "}
             </p>
             <p>
-              <MdPlace /> : {adress || "Aucune information"}{" "}
+              <IoMdPricetag /> : {eventPrice || "Aucune information"}{" "}
             </p>
             <p>
               <AiFillHome /> : {departement || "Aucune information"}{" "}
+            </p>
+            <p>
+              <MdPlace /> : {adress || "Aucune information"}{" "}
             </p>
           </>
         )}
