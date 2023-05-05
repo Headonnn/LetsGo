@@ -53,6 +53,8 @@ function App() {
               setCalend={setCalend}
               setDateEvMin={setDateEvMin}
               setDateEvMax={setDateEvMax}
+              setFree={setFree}
+              setFavoritesFilter={setFavoritesFilter}
             />
           }
         />
