@@ -21,7 +21,7 @@ function Categ({ donnees, setCateg, categ }) {
       return haha.indexOf(e) === i;
     });
     filtHaha.unshift("All");
-    filtHaha.splice(7, 0, "+");
+    filtHaha.splice(8, 0, "+");
     return filtHaha.map((e, i) => {
       if (e === undefined) {
         return (
@@ -40,7 +40,7 @@ function Categ({ donnees, setCateg, categ }) {
           </div>
         );
       }
-      if (i === 7) {
+      if (i === 8) {
         return (
           <div
             key="+"
@@ -56,7 +56,7 @@ function Categ({ donnees, setCateg, categ }) {
           </div>
         );
       }
-      if ((i > 7 && !plus) || i < 7) {
+      if ((i > 8 && !plus) || i < 8) {
         return (
           <div
             key={e}
@@ -73,11 +73,15 @@ function Categ({ donnees, setCateg, categ }) {
           </div>
         );
       }
-      return <div />;
+      return <div className="invi" />;
     });
   };
 
-  return <div className="boutonsCategCont">{handleCateg()}</div>;
+  return (
+    <div className={`boutonsCategCont ${plus ? "petit" : "grand"}`}>
+      {handleCateg()}
+    </div>
+  );
 }
 export default Categ;
 Categ.propTypes = {

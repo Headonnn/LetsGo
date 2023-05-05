@@ -42,7 +42,21 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Accueil api={api} categ={setCateg} />} />
+        <Route
+          path="/"
+          element={
+            <Accueil
+              api={api}
+              setCateg={setCateg}
+              setDept={setDept}
+              calend={calend}
+              setCalend={setCalend}
+              setDateEvMin={setDateEvMin}
+              setDateEvMax={setDateEvMax}
+            />
+          }
+        />
+
         <Route
           path="/Evenements"
           element={

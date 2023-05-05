@@ -1,39 +1,41 @@
+/* eslint-disable react/no-unknown-property */
 import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { NavLink } from "react-router-dom";
-import "../style/_carouselcategories.scss";
+import "../index.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PropTypes from "prop-types";
 
 function CarouselCategories({ setCateg }) {
-  const handleClickCateg = (e) => {
-    setCateg(e.target.key);
+  const handleClickCategories = (e) => {
+    setCateg(e.target.id);
   };
+
   const carousel = [
     {
-      id: 1,
       title: "Festival",
+      titletrue: "Festival",
       image: "./src/assets/images/evenements.jpg",
     },
     {
-      id: 2,
       title: "Plein Air",
+      titletrue: "Sortie nature / environnement",
       image: "./src/assets/images/nature.jpg",
     },
     {
-      id: 3,
       title: "Sport",
+      titletrue: "Manifestation sportive",
       image: "./src/assets/images/sport.jpg",
     },
     {
-      id: 4,
       title: "Concert",
+      titletrue: "Concert",
       image: "./src/assets/images/concert.jpg",
     },
     {
-      id: 5,
       title: "Cinéma",
+      titletrue: "Cinéma",
       image: "./src/assets/images/cinema1.jpg",
     },
   ];
@@ -44,20 +46,22 @@ function CarouselCategories({ setCateg }) {
       <div className="carousel_size">
         <Carousel autoPlay interval={10000} infiniteLoop showStatus={false}>
           {carousel.map((slide) => (
-            <>
+            <NavLink to="/Evenements">
               <div
+                id={slide.titletrue}
                 key={slide.title}
-                onClick={(e) => handleClickCateg(e)}
-                onKeyDown={(e) => handleClickCateg(e)}
+                onClick={(e) => handleClickCategories(e)}
+                onKeyDown={(e) => handleClickCategories(e)}
                 role="presentation"
-              />
-              <img src={slide.image} alt="" />
-              <div className="overlay">
-                <NavLink to="/Evenements">
-                  <h2 className="overlay_title">{slide.title}</h2>
-                </NavLink>
+              >
+                <img src={slide.image} id={slide.titletrue} alt="" />
+                <div className="overlay" id={slide.titletrue}>
+                  <h2 className="overlay_title" id={slide.titletrue}>
+                    {slide.title}
+                  </h2>
+                </div>
               </div>
-            </>
+            </NavLink>
           ))}
         </Carousel>
       </div>

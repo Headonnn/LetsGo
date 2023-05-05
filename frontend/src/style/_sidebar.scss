@@ -9,10 +9,10 @@
   min-width: 50px;
   left: 0;
   top: 0;
-  bottom: 0;
   position: relative;
   overflow-y: scroll;
-  z-index: 1;
+  z-index: 2;
+  position: fixed;
 }
 ::-webkit-scrollbar {
   width: 0px;
@@ -43,6 +43,9 @@
 }
 .home {
   padding-left: 25px;
+
+  // display: flex;
+
   font-size: 2rem;
   cursor: pointer;
   text-decoration: none;
@@ -61,7 +64,8 @@
   text-align: center;
 }
 #text {
-  // display: flex;
+  display: flex;
+
   justify-content: center;
   font-family: "Titillium Web", sans-serif;
   text-transform: uppercase;
@@ -72,19 +76,36 @@
   color: var(--color-text-light);
   letter-spacing: 2px;
 }
-@media (min-width: 300px) {
+
+.dept {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.deptSpan {
+  width: 100%;
+  margin-bottom: 15%;
+}
+select {
+  width: 100%;
+  font-family: "Titillium Web", sans-serif;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 1rem;
+}
+@media screen and (min-width: 300px) {
   .sidebar {
     width: 100%;
   }
 }
 
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) {
   .sidebar {
     width: 50%;
   }
 }
 
-@media (min-width: 1000px) {
+@media screen and (min-width: 1000px) {
   .sidebar {
     width: 35%;
   }

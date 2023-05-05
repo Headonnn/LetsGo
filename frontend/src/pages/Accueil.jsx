@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../index.scss";
 import Header from "../components/Header";
+import Navigation from "../components/Menu_accueil/MenuAccueil";
 import CarouselCategories from "../components/CarouselCategories";
 import Recommandation from "../components/Recommandation";
 import Footer from "../components/Footer";
@@ -14,17 +15,37 @@ import Footer from "../components/Footer";
 // import FiltreDate from "./components/FiltreDate";
 /* import _index from "./Styles/_index.scss"; */
 
-function Accueil({ dept, setDept, categ, setCateg }) {
+function Accueil({
+  api,
+  dept,
+  setDept,
+  categ,
+  setCateg,
+  setDateEvMin,
+  setDateEvMax,
+}) {
   return (
     <div className="Accueil">
       <Header />
+      <Navigation
+        donnees={api}
+        setCateg={setCateg}
+        setDept={setDept}
+        setDateEvMin={setDateEvMin}
+        setDateEvMax={setDateEvMax}
+      />
       <CarouselCategories
         dept={dept}
         setDept={setDept}
         categ={categ}
         setCateg={setCateg}
       />
-      <Recommandation />
+      <Recommandation
+        // dept={dept}
+        // setDept={setDept}
+        // categ={categ}
+        setCateg={setCateg}
+      />
       <Footer />
     </div>
   );
@@ -35,6 +56,11 @@ export default Accueil;
 Accueil.propTypes = {
   dept: PropTypes.string.isRequired,
   setDept: PropTypes.string.isRequired,
+  setDateEvMin: PropTypes.string.isRequired,
+  setDateEvMax: PropTypes.string.isRequired,
   categ: PropTypes.string.isRequired,
   setCateg: PropTypes.string.isRequired,
+  api: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  ).isRequired,
 };

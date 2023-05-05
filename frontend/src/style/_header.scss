@@ -2,18 +2,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: url("../assets/images/nantes-header.jpg");
   background-size: cover;
   background-position: center;
   height: 35vh;
+  top: 0;
+  left: 0;
+  right: 0;
 
   .text {
     background-color: rgba(255, 255, 255, 0.5);
     font-family: "BioRhyme", serif;
     text-align: center;
-    margin: 10%;
-    margin-bottom: 125px;
+    margin: 5vw;
     border-radius: 10px;
     padding: 10px;
     color: var(--color-text-dark);
@@ -29,3 +30,8 @@
     color: var(--color-text-dark);
   }
 }
+
+// @media screen and (min-width: 300px) {
+//   .hero {
+//   }
+// }

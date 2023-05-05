@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap");
+
 .nav-icon {
   height: 20px;
   width: 20px;
-  margin-right: 10px;
-  margin-top: 5px auto;
+  margin: 5px 10px 0 0;
 }
 
 .navigation {
@@ -13,36 +15,28 @@
 .ul-nav {
   display: flex;
   justify-content: space-around;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-variant);
   width: 100%;
+  margin-top: 15px;
 }
 
 .nav-li {
-  background: linear-gradient(var(--color-bg-variant), #4b50d7);
-  border: 1px solid linear-gradient(var(--color-bg-variant), #4b50d7);
-  border-radius: 50px;
-  padding: 1rem;
   margin: 1rem;
-  box-shadow: 1px 1px 1px 0.5px rgb(112, 110, 110);
+  font-family: "Titillium Web", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
   padding: 1.2rem;
 }
 
 .a-nav {
   color: var(--color-text-light);
-}
-
-.nav-li:hover {
-  background: var(--color-bg-variant);
-  border: 1px solid var(--color-bg-variant);
-  border-radius: 50px;
+  font-weight: 700;
 }
 
 /*==================== MEDIA QUERIES (small devices) ==========*/
 @media screen and (max-width: 600px) {
-  .icon {
-    display: none;
-  }
-
   .nav-li {
     margin-left: auto;
     margin-right: auto;

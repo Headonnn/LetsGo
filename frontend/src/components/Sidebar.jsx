@@ -43,14 +43,18 @@ function Sidebar({
     setMaxValue(e.maxValue);
   };
   const barStyle = {
-    marginLeft: isOpen ? "42%" : "0%",
+    // marginLeft: isOpen ? "42%" : "0%",
+
+    marginLeft: isOpen ? "175px" : "0px",
   };
   const homeStyle = {
     marginLeft: isOpen ? "block" : "none",
   };
 
   return (
-    <nav className="sidebar" style={{ width: isOpen ? "25%" : "3.5%" }}>
+    // <nav className="sidebar" style={{ width: isOpen ? "25%" : "3.5%" }}>
+
+    <nav className="sidebar" style={{ width: isOpen ? "400px" : "55px" }}>
       <div className="links">
         <span style={{ display: isOpen ? "block" : "none" }}>
           <NavLink to="/" className="home" style={homeStyle}>
@@ -86,18 +90,15 @@ function Sidebar({
           />
         </span>
 
-        <br />
-
         <div>
           <AiOutlineEuroCircle
             style={{ display: isOpen ? "none" : "block" }}
             id="icon"
           />
           <p style={{ display: isOpen ? "block" : "none" }} id="text">
-            Tarif
+            Tarifs
           </p>
         </div>
-
         <span style={{ display: isOpen ? "block" : "none" }}>
           <TarifGratuit
             setFree={setFree}
@@ -105,7 +106,6 @@ function Sidebar({
             setMinValue={setMinValue}
             setMaxValue={setMaxValue}
           />
-
           {free !== "Gratuit" && (
             <MultiRangeSlider
               min={0}
@@ -162,13 +162,16 @@ function Sidebar({
           </p>
         </div>
 
-        <div>
-          <span style={{ display: isOpen ? "block" : "none" }}>
+        <br />
+
+        <div className="dept">
+          <span
+            className="deptSpan"
+            style={{ display: isOpen ? "block" : "none" }}
+          >
             {api && <Dept donnees={api} setDept={setDept} />}
           </span>
         </div>
-
-        <br />
       </div>
     </nav>
   );

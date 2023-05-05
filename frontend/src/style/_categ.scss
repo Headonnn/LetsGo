@@ -1,12 +1,20 @@
 .boutonsCategCont {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   max-width: 80%;
   padding: 4px;
-
+  .grand {
+    grid-template-rows: repeat(7, 1fr);
+  }
+  .petit {
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .invi {
+    display: none;
+  }
   .boutonCateg {
     background-color: white;
     border-radius: 4px;
