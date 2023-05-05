@@ -53,7 +53,7 @@ function CarouselCategories({ setCateg }) {
               />
               <img src={slide.image} alt="" />
               <div className="overlay">
-                <NavLink to="/Page2">
+                <NavLink to="/Evenements">
                   <h2 className="overlay_title">{slide.title}</h2>
                 </NavLink>
               </div>

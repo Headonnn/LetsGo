@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-function Page2({
+function Evenements({
   dateEvMin,
   setDateEvMin,
   dateEvMax,
@@ -162,9 +162,9 @@ function Page2({
   );
 }
 
-export default Page2;
+export default Evenements;
 
-Page2.propTypes = {
+Evenements.propTypes = {
   api: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ).isRequired,

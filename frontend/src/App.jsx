@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./index.scss";
 import axios from "axios";
-import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
+import Accueil from "./pages/Accueil";
+import Evenements from "./pages/Evenements";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
@@ -42,11 +42,11 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Page1 api={api} categ={setCateg} />} />
+        <Route path="/" element={<Accueil api={api} categ={setCateg} />} />
         <Route
-          path="/page2"
+          path="/Evenements"
           element={
-            <Page2
+            <Evenements
               dateEvMin={dateEvMin}
               setDateEvMin={setDateEvMin}
               dateEvMax={dateEvMax}

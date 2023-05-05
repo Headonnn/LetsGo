@@ -14,9 +14,9 @@ import Footer from "../components/Footer";
 // import FiltreDate from "./components/FiltreDate";
 /* import _index from "./Styles/_index.scss"; */
 
-function Page1({ dept, setDept, categ, setCateg }) {
+function Accueil({ dept, setDept, categ, setCateg }) {
   return (
-    <div className="Page1">
+    <div className="Accueil">
       <Header />
       <CarouselCategories
         dept={dept}
@@ -30,9 +30,9 @@ function Page1({ dept, setDept, categ, setCateg }) {
   );
 }
 
-export default Page1;
+export default Accueil;
 
-Page1.propTypes = {
+Accueil.propTypes = {
   dept: PropTypes.string.isRequired,
   setDept: PropTypes.string.isRequired,
   categ: PropTypes.string.isRequired,

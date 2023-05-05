@@ -7,10 +7,10 @@ function FavorisFilter({ favoritesFilter, setFavoritesFilter }) {
   };
 
   return (
-    <div>
-      <label>
+    <div className="FavFilterDiv">
+      <label className="FavLabel">
         Mes événements favoris
-        <input type="checkbox" onChange={handleCheckBox} />
+        <input className="FavInput" type="checkbox" onChange={handleCheckBox} />
       </label>
     </div>
   );
