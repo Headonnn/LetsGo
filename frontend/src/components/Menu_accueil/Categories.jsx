@@ -52,7 +52,7 @@ function Categories({ donnees, setCateg }) {
       );
     });
   };
-  return <div>{handleCateg()}</div>;
+  return <div className="navigation-categories-container">{handleCateg()}</div>;
 }
 
 export default Categories;

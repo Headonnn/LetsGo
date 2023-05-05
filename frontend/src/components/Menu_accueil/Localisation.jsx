@@ -49,7 +49,14 @@ function Localisation({ donnees, setDept }) {
     });
   };
 
-  return <div onChange={(e) => handleDepaChange(e)}>{handleLoc()}</div>;
+  return (
+    <div
+      className=".navigation-lieux-container"
+      onChange={(e) => handleDepaChange(e)}
+    >
+      {handleLoc()}
+    </div>
+  );
 }
 
 export default Localisation;

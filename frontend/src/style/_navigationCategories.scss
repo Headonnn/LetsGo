@@ -2,6 +2,15 @@ body {
   background-color: var(--color-bg);
 }
 
+.navigation-categories-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
 .navigation-categories {
   display: flex;
   margin: 0 auto;
@@ -10,12 +19,9 @@ body {
   padding: 1rem;
 }
 
-.navigation-categories p {
+.navigation-lieux-container {
   display: flex;
-  width: 80%;
-  margin: 0 auto;
   justify-content: center;
-  margin-top: 0.5rem;
 }
 
 .navigation-categories-lieux {
