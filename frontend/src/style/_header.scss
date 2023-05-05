@@ -20,10 +20,12 @@
     color: var(--color-text-dark);
     text-shadow: rgb(57, 10, 107) 9px 3px 14px;
   }
+
   h1 {
     font-family: "Titillium Web", sans-serif;
     font-size: 4rem;
   }
+
   h2 {
     font-family: "Titillium Web", sans-serif;
     font-size: 2rem;
@@ -31,7 +33,9 @@
   }
 }
 
-// @media screen and (min-width: 300px) {
-//   .hero {
-//   }
-// }
+@media screen and (max-width: 500px) {
+  .text h2 {
+    display: none;
+    visibility: hidden;
+  }
+}
