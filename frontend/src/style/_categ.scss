@@ -1,0 +1,41 @@
+.boutonsCategCont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  max-width: 100%;
+  padding: 4px;
+  .grand {
+    grid-template-rows: repeat(7, 1fr);
+  }
+  .petit {
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .invi {
+    display: none;
+  }
+  .boutonCateg {
+    background-color: white;
+    border-radius: 4px;
+    color: black;
+    margin: 5px;
+    height: 70px;
+    padding: 3px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Titillium Web", sans-serif;
+    text-align: center;
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: rgba(77, 79, 83, 0.2) 0px 8px 24px;
+      cursor: pointer;
+    }
+  }
+  .selected {
+    background-color: var(--color-secondary);
+    color: white;
+  }
+}

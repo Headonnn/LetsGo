@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+
 import PropTypes from "prop-types";
 
-function Categ({ donnees, setCateg }) {
+function Categ({ donnees, setCateg, categ }) {
+  const [plus, setPlus] = useState(true);
+  const handlePlus = () => {
+    setPlus(!plus);
+  };
+  const handleCategChange = (e) => {
+    setCateg(e.target.id);
+  };
+
   const handleCateg = () => {
     let haha = [];
     haha = donnees.map((e) => {
@@ -12,33 +21,73 @@ function Categ({ donnees, setCateg }) {
       return haha.indexOf(e) === i;
     });
     filtHaha.unshift("All");
-    return filtHaha.map((e) => {
-      return e === undefined ? (
-        <option key={e} value={undefined}>
-          Sans categorie
-        </option>
-      ) : (
-        <option key={e} value={e}>
-          {e}
-        </option>
-      );
+    filtHaha.splice(8, 0, "+");
+    return filtHaha.map((e, i) => {
+      if (e === undefined) {
+        return (
+          <div
+            key={e}
+            value={undefined}
+            onClick={(el) => handleCategChange(el)}
+            onKeyDown={(el) => handleCategChange(el)}
+            role="presentation"
+            id={e}
+            className={`boutonCateg ${
+              categ === e ? "selected" : "notSelected"
+            }`}
+          >
+            Sans categorie
+          </div>
+        );
+      }
+      if (i === 8) {
+        return (
+          <div
+            key="+"
+            value={plus}
+            onClick={() => handlePlus()}
+            onKeyDown={() => handlePlus()}
+            role="presentation"
+            id="+"
+            className="boutonCateg plus"
+          >
+            {" "}
+            {plus ? "+" : "-"}
+          </div>
+        );
+      }
+      if ((i > 8 && !plus) || i < 8) {
+        return (
+          <div
+            key={e}
+            value={e}
+            onClick={(el) => handleCategChange(el)}
+            onKeyDown={(el) => handleCategChange(el)}
+            role="presentation"
+            id={e}
+            className={`boutonCateg ${
+              categ === e ? "selected" : "notSelected"
+            }`}
+          >
+            {e}
+          </div>
+        );
+      }
+      return <div className="invi" />;
     });
   };
-  const handleCategChange = (e) => {
-    setCateg(e.target.value);
-  };
+
   return (
-    <>
-      <p>CATEGORIES :</p>
-      <select onChange={(e) => handleCategChange(e)}>{handleCateg()}</select>
-    </>
+    <div className={`boutonsCategCont ${plus ? "petit" : "grand"}`}>
+      {handleCateg()}
+    </div>
   );
 }
-
 export default Categ;
 Categ.propTypes = {
   donnees: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ).isRequired,
   setCateg: PropTypes.string.isRequired,
+  categ: PropTypes.string.isRequired,
 };

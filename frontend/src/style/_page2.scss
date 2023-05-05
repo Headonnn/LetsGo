@@ -1,0 +1,14 @@
+@media screen and (min-width: 700px) {
+  .page2Container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .containerCards {
+    width: 50%;
+  }
+  .Card {
+    max-width: 80%;
+    min-height: 95%;
+  }
+}

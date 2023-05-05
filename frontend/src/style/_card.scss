@@ -1,0 +1,79 @@
+.Card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px 15px 0 80px;
+  max-width: 70vw;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 4px;
+  transition: all 0.25s ease-out;
+  overflow: hidden;
+  background-color: white;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: rgba(77, 79, 83, 0.2) 0px 8px 24px;
+  }
+
+  .CardImg {
+    max-height: 25vh;
+  }
+  .DivTextCard {
+    padding: 20px;
+    p {
+      margin-bottom: 8px;
+    }
+  }
+
+  .CardEvent {
+    font-size: 23px;
+    max-width: 80%;
+  }
+  Button {
+    background: none;
+  }
+  #favorite {
+    position: absolute;
+    border: none;
+    background: none;
+    top: 25px;
+    right: 1em;
+    align-self: flex-end;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+
+  #detailsArrow {
+    position: absolute;
+    top: 5.5em;
+    right: 1.3em;
+    cursor: pointer;
+    transition: all 0.1s;
+    background: none;
+    padding: 10px;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  .CardDate {
+    color: var(--color-secondary);
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .Card {
+    display: flex;
+    flex-direction: column;
+  }
+}

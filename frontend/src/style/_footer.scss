@@ -1,19 +1,19 @@
 .footer {
+  display: flex;
+  justify-content: center;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: var(--color-text-dark);
-}
+  z-index: 1;
 
-.icons {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  padding: 10px;
-}
+  .icons {
+    padding: 10px;
 
-.social {
-  color: white;
-  font-size: 2rem;
+    .social {
+      color: white;
+      font-size: 2rem;
+    }
+  }
 }
