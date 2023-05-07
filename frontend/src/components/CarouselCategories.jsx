@@ -6,6 +6,11 @@ import "../index.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PropTypes from "prop-types";
+import festival from "../assets/images/evenements.jpg";
+import nature from "../assets/images/nature.jpg";
+import sport from "../assets/images/sport.jpg";
+import concert from "../assets/images/concert.jpg";
+import cinema from "../assets/images/cinema1.jpg";
 
 function CarouselCategories({ setCateg }) {
   const handleClickCategories = (e) => {
@@ -16,27 +21,27 @@ function CarouselCategories({ setCateg }) {
     {
       title: "Festival",
       titletrue: "Festival",
-      image: "./src/assets/images/evenements.jpg",
+      image: festival,
     },
     {
       title: "Plein Air",
       titletrue: "Sortie nature / environnement",
-      image: "./src/assets/images/nature.jpg",
+      image: nature,
     },
     {
       title: "Sport",
       titletrue: "Manifestation sportive",
-      image: "./src/assets/images/sport.jpg",
+      image: sport,
     },
     {
       title: "Concert",
       titletrue: "Concert",
-      image: "./src/assets/images/concert.jpg",
+      image: concert,
     },
     {
       title: "Cinéma",
       titletrue: "Cinéma",
-      image: "./src/assets/images/cinema1.jpg",
+      image: cinema,
     },
   ];
 
