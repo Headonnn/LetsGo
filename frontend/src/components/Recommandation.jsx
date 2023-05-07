@@ -4,6 +4,9 @@ import "../index.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PropTypes from "prop-types";
+import exposition from "../assets/images/expo.jpg";
+import theatre from "../assets/images/theatre1.jpg";
+import rallye from "../assets/images/rally.jpg";
 
 function Recommandation({ setCateg }) {
   const handleClickCoeur = (e) => {
@@ -13,17 +16,17 @@ function Recommandation({ setCateg }) {
     {
       title: "Exposition",
       titletrue: "Exposition",
-      image: "./src/assets/images/expo.jpg",
+      image: exposition,
     },
     {
       title: "Théâtre",
       titletrue: "Théâtre",
-      image: "./src/assets/images/theatre1.jpg",
+      image: theatre,
     },
     {
       title: "Rallye",
       titletrue: "Rallye",
-      image: "./src/assets/images/rally.jpg",
+      image: rallye,
     },
   ];
 
