@@ -21,6 +21,7 @@
     "dev-back": "cross-env-shell \"cd ./backend && $npm_package_config_cli run dev\"",
     "lint": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run lint && cd ../backend && $npm_package_config_cli run lint\"",
     "fix": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run fix && cd ../backend && $npm_package_config_cli run fix\""
+    
   },
   "keywords": [],
   "author": "Wild Code School",
@@ -29,7 +30,8 @@
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "vercel": "^29.1.1"
   },
   "dependencies": {
     "nodemon": "^2.0.22",
